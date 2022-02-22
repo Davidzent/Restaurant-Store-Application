@@ -34,6 +34,7 @@ export class ViewPurchaseComponent implements OnInit {
       lname:"",
       email:""    //don't know if we should display this
     },
+    address:"",
     purchase: 0,
     delivery: 0,
     status: 0
