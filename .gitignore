@@ -17,6 +17,7 @@ yarn-error.log
 .vscode/
 .project
 .classpath
+.angular/
 .c9/
 *.launch
 .settings/
