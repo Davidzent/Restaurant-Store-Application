@@ -26,11 +26,13 @@ import { LabelInputComponent } from './components/utils/modal/label-input/label-
 import { ProductComponent } from './components/utils/products-pages/product/product.component';
 import { ProductsComponent } from './components/utils/products-pages/products/products.component';
 import { NewProductComponent } from './components/utils/products-pages/new-product/new-product.component';
+import { ViewProductComponent } from './components/utils/products-pages/view-product/view-product.component';
 
 //utils purchases
 import { PurchaseComponent } from './components/utils/purchases-pages/purchase/purchase.component';
 import { PurchasesComponent } from './components/utils/purchases-pages/purchases/purchases.component';
 import { NewPurchaseComponent } from './components/utils/purchases-pages/new-purchase/new-purchase.component';
+import { ViewPurchaseComponent } from './components/utils/purchases-pages/view-purchase/view-purchase.component';
 
 //others
 
@@ -57,11 +59,13 @@ import { TestingHomeComponent } from './components/unique-pages/testing-home/tes
     ProductComponent,
     ProductsComponent,
     NewProductComponent,
+    ViewProductComponent,
 
     //purchases
     PurchaseComponent,
     PurchasesComponent,
     NewPurchaseComponent,
+    ViewPurchaseComponent,
 
     //modal
     ModalComponent,
