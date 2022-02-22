@@ -1,0 +1,43 @@
+#view-purchase{
+  width: 400px;
+}
+#reciept-head{
+  display: flex;
+  justify-content: space-between;
+}
+#reciept{
+  margin-left: 40%;
+}
+#close{
+  margin-top: 65px;
+  padding-top: 67px;
+  border: none;
+  background: none;
+}
+button {
+  height: 20px;
+  border: none;
+}
+
+#reciept-body{
+  display: flex;
+ /* margin-left: 100px;*/
+
+}
+#p-id{
+  padding-top: 3px;
+}
+#p-name{
+  margin-left: 3%;
+}
+#p-price{
+  margin-left: 83%;
+}
+
+.line {
+  color: #eee0e0;
+}
+#reciept-total{
+  display: flex;
+  justify-content: space-between;
+}
