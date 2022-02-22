@@ -19,7 +19,7 @@ export class ViewPurchaseComponent implements OnInit {
       product_id: 0,
       price: 0,
       description: '',
-      seller: {       //probably we are just going to need a buyer or a seller since one of them is going to  be login
+      seller: {
         user_id:0,    //unique id no need to display this
         fname:"",
         lname:"",
@@ -27,12 +27,6 @@ export class ViewPurchaseComponent implements OnInit {
       },
       status: 0,
       typeid: 0
-    },
-    buyer: {       //probably we are just going to need a buyer or a seller since one of them is going to  be login
-      user_id:0,   //unique id no need to display this
-      fname:"",
-      lname:"",
-      email:""    //don't know if we should display this
     },
     address:"",
     purchase: 0,

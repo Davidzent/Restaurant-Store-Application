@@ -18,21 +18,21 @@ import { NavbarComponent } from './components/general-pages/navbar/navbar.compon
 import { FooterComponent } from './components/general-pages/footer/footer.component';
 
 //utils modal
-import { ModalComponent } from './components/utils/modal/modal/modal.component';
-import { LabelSelectComponent } from './components/utils/modal/label-select/label-select.component';
-import { LabelInputComponent } from './components/utils/modal/label-input/label-input.component';
+import { ModalComponent } from './components/utils/general/modal/modal/modal.component';
+import { LabelSelectComponent } from './components/utils/general/modal/label-select/label-select.component';
+import { LabelInputComponent } from './components/utils/general/modal/label-input/label-input.component';
 
 //utils products
-import { ProductComponent } from './components/utils/products-pages/product/product.component';
-import { ProductsComponent } from './components/utils/products-pages/products/products.component';
-import { NewProductComponent } from './components/utils/products-pages/new-product/new-product.component';
-import { ViewProductComponent } from './components/utils/products-pages/view-product/view-product.component';
+import { ProductComponent } from './components/utils/customer/products-pages/product/product.component';
+import { ProductsComponent } from './components/utils/customer/products-pages/products/products.component';
+import { NewProductComponent } from './components/utils/customer/products-pages/new-product/new-product.component';
+import { ViewProductComponent } from './components/utils/customer/products-pages/view-product/view-product.component';
 
 //utils purchases
-import { PurchaseComponent } from './components/utils/purchases-pages/purchase/purchase.component';
-import { PurchasesComponent } from './components/utils/purchases-pages/purchases/purchases.component';
-import { NewPurchaseComponent } from './components/utils/purchases-pages/new-purchase/new-purchase.component';
-import { ViewPurchaseComponent } from './components/utils/purchases-pages/view-purchase/view-purchase.component';
+import { PurchaseComponent } from './components/utils/customer/purchases-pages/purchase/purchase.component';
+import { PurchasesComponent } from './components/utils/customer/purchases-pages/purchases/purchases.component';
+import { NewPurchaseComponent } from './components/utils/customer/purchases-pages/new-purchase/new-purchase.component';
+import { ViewPurchaseComponent } from './components/utils/customer/purchases-pages/view-purchase/view-purchase.component';
 
 //others
 
