@@ -1,4 +1,4 @@
-<form [ngClass]="['params']" id ={{params.id}}>
+<form [ngClass]="['params']" #form (ngSubmit)="onSubmit(form)" id ={{params.id}}>
   <div id="modalShadow" class="modalShadow">
       <div id="modal" class="modal">
           <div id="modalWrapper" class="modalWrapper">
@@ -7,6 +7,7 @@
               </div>
               <div id = "modalContentWrapper" class="modalContentWrapper">
                   <div id="modalContent" class="modalContent">
+                    <label-hidden-input *ngFor="let input of params.formParams.hidden" [hiddenInput]="input"></label-hidden-input>
                     <label-input *ngFor="let input of params.formParams.inputs" [input]="input"></label-input>
                     <label-select *ngFor="let select of params.formParams.selects" [select]="select"></label-select>
                   </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IModalParams } from 'src/app/interfaces/modal/Imodal-params';
 
 @Component({
@@ -13,6 +13,17 @@ export class ModalComponent implements OnInit {
   ngOnInit() {
   }
 
+  //To send data from the new course component to the course page we
+  //need to use @Output and create a new event emitter
+  @Output() sendModalResponse = new EventEmitter();
+
+  onSubmit(form:any):void{
+    this.sendModalResponse.emit(form);
+    for(let i=0;i<form.length-1;i++){
+      form[i].value="";
+    }
+  }
+
   hide():void{
     this.params.hidden=!this.params.hidden;
   }
@@ -21,6 +32,7 @@ export class ModalComponent implements OnInit {
     title: '',
     id: '',
     formParams: {
+      hidden:[],
       inputs: [],
       selects: []
     },
