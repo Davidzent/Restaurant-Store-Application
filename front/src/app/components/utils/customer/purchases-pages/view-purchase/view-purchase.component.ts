@@ -16,9 +16,10 @@ export class ViewPurchaseComponent implements OnInit {
   @Input() input:IPurchase = {
     purchase_id: 0,
     product: {
+      name: "Testing",
       product_id: 0,
-      price: 0,
-      description: '',
+      price: 30,
+      description: 'Test Test Test Test Test Test Test Test Test Test Test Test Test',
       seller: {
         user_id:0,    //unique id no need to display this
         fname:"",
