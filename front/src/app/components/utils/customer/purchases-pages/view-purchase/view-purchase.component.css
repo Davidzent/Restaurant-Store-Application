@@ -16,7 +16,6 @@
   border: none;
   background: none;
   /* margin-left: 78%; */
-
 }
 button {
   height: 20px;
@@ -25,6 +24,7 @@ button {
 
 #reciept-body{
   display: flex;
+
 
 }
 #p-id{
