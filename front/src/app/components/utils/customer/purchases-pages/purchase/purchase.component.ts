@@ -1,17 +1,22 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IPurchase } from 'src/app/interfaces/Ipurchase';
 
+
 @Component({
   selector: 'purchase',
   templateUrl: './purchase.component.html',
+ // templateUrl: './purchasetable.component.html',
   styleUrls: ['./purchase.component.css']
 })
+
 export class PurchaseComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit() {
+
   }
+
 
   @Input() input:IPurchase = {
     purchase_id: 0,

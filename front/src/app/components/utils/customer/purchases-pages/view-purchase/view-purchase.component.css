@@ -1,5 +1,7 @@
 #view-purchase{
-  width: 400px;
+  width: 40%;
+  margin-left: 5%;
+  margin-top: 80px;
 }
 #reciept-head{
   display: flex;
@@ -13,6 +15,7 @@
   padding-top: 67px;
   border: none;
   background: none;
+  /* margin-left: 78%; */
 }
 button {
   height: 20px;
@@ -21,7 +24,7 @@ button {
 
 #reciept-body{
   display: flex;
- /* margin-left: 100px;*/
+
 
 }
 #p-id{

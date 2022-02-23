@@ -1,3 +1,41 @@
-<p>
-  purchase works!
+<div class="main-content">
+    <div class="section-content section-content-p30">
+            <div class="container-fluid">
+
+                    <table class="table table-bordered">
+                        <tr>
+                            <th width="30%">Product Image</th>
+                            <th width="60%">Product Detail</th>
+                            <th width="30%">Quantity and Subtotal</th>
+                        </tr>
+
+                        <tr>
+                            <td><!--display item here-->
+                                <!-- <img src="{{}}" class="img-responsive" width="150px" /> -->
+                            </td>
+                            <td> <!--display iteam name and price here-->
+                                <p> {{"item name"}} </p>
+                                <p> {{"item price"}} </p>
+                            </td>
+                            <td> <!-- display quantity-->
+                                <div class="">
+                                    <label>Quantity:</label> {{"quantity"}}
+                                </div>>
+                            </td>
+
+                        </tr>
+                    </table>
+         </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- find out how to look through array of objects
+<p *ngFor="let tempPurchase of purchase">
+    {{ tempPurchase.purchase.purchase_id }}
 </p>
+
+-->

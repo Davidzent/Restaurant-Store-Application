@@ -32,7 +32,7 @@ import { ProductsComponent } from './components/utils/customer/products-pages/pr
 import { NewProductComponent } from './components/utils/customer/products-pages/new-product/new-product.component';
 import { ViewProductComponent } from './components/utils/customer/products-pages/view-product/view-product.component';
 
-//utils purchases
+// //utils purchases
 import { PurchaseComponent } from './components/utils/customer/purchases-pages/purchase/purchase.component';
 import { PurchasesComponent } from './components/utils/customer/purchases-pages/purchases/purchases.component';
 import { NewPurchaseComponent } from './components/utils/customer/purchases-pages/new-purchase/new-purchase.component';
