@@ -53,17 +53,6 @@ export class MyProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this should be removed in some point
-    // let user:IUser={
-    //   user_id:99,
-    //   username:"Zent",
-    //   password:"12345",
-    //   fname:"David",
-    //   lname:"Guijosa",
-    //   email:"david@email.com",
-    //   roleid:1
-    // }
-    // localStorage.setItem("user",JSON.stringify(user));
   }
 
 }

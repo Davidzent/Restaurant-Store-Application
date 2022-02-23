@@ -6,7 +6,7 @@ input[type=search],
 textarea,
 input[type=datetime-local] {
   width: 440px;
-  height: 40px;
+  height: 25px;
 }
 
 
@@ -19,4 +19,5 @@ span{
 img{
   height: 10px;
   width: 10px;
+  cursor: pointer;
 }

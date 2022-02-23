@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
 
   params:IModalParams={
     hidden: true,
-    title: 'My Account',
+    title: 'Register',
     formParams: {
       inputs:[
         {

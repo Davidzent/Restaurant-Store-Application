@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
 
   params:IModalParams={
     hidden: true,
-    title: 'My Account',
+    title: 'Log in',
     formParams: {
       inputs:[
         {
