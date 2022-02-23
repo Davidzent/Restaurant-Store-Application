@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
       fname:"John",
       lname:"Doe",
       email:"JohnDoe@email.com",
-      roleid:2
+      roleid:1
     }
     localStorage.setItem("user",JSON.stringify(user));
     location.reload();
