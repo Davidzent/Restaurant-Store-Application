@@ -1,0 +1,46 @@
+#view-purchase{
+  width: 40%;
+  margin-left: 5%;
+  margin-top: 80px;
+}
+#reciept-head{
+  display: flex;
+  justify-content: space-between;
+}
+#reciept{
+  margin-left: 40%;
+}
+#close{
+  margin-top: 65px;
+  padding-top: 67px;
+  border: none;
+  background: none;
+  margin-left: 78%;
+}
+button {
+  height: 20px;
+  border: none;
+}
+
+#reciept-body{
+  display: flex;
+  /* margin-left: 100px;*/
+
+}
+#p-id{
+  padding-top: 3px;
+}
+#p-name{
+  margin-left: 3%;
+}
+#p-price, #p-total{
+  margin-left: 78%;
+}
+
+.line {
+  color: #a29393;
+}
+#reciept-total{
+  display: flex;
+  justify-content: space-between;
+}

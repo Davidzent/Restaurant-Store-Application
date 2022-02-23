@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 //main library
 import { AppComponent } from './app.component';
@@ -16,11 +16,15 @@ import { FoodMenuComponent } from './components/unique-pages/food-menu/menu.comp
 //general library
 import { NavbarComponent } from './components/general-pages/navbar/navbar.component';
 import { FooterComponent } from './components/general-pages/footer/footer.component';
+import { MyProfileComponent } from './components/general-pages/my-profile/my-profile.component';
+import { LoginComponent } from './components/general-pages/login/login.component';
+import { RegisterComponent } from './components/general-pages/register/register.component';
 
 //utils modal
 import { ModalComponent } from './components/utils/general/modal/modal/modal.component';
 import { LabelSelectComponent } from './components/utils/general/modal/label-select/label-select.component';
 import { LabelInputComponent } from './components/utils/general/modal/label-input/label-input.component';
+import { LabelHiddenInputComponent } from './components/utils/general/modal/label-hidden-input/label-hidden-input.component';
 
 //utils products
 import { ProductComponent } from './components/utils/customer/products-pages/product/product.component';
@@ -33,6 +37,9 @@ import { PurchaseComponent } from './components/utils/customer/purchases-pages/p
 import { PurchasesComponent } from './components/utils/customer/purchases-pages/purchases/purchases.component';
 import { NewPurchaseComponent } from './components/utils/customer/purchases-pages/new-purchase/new-purchase.component';
 import { ViewPurchaseComponent } from './components/utils/customer/purchases-pages/view-purchase/view-purchase.component';
+
+//pipes
+import { IUserInputPipe } from './pipes/IUser-input/IUser-Input.pipe';
 
 //others
 
@@ -49,6 +56,8 @@ import { TestingHomeComponent } from './components/unique-pages/testing-home/tes
     //general
     NavbarComponent,
     FooterComponent,
+    LoginComponent,
+    RegisterComponent,
 
     //unique
     HomeComponent,
@@ -71,6 +80,13 @@ import { TestingHomeComponent } from './components/unique-pages/testing-home/tes
     ModalComponent,
     LabelSelectComponent,
     LabelInputComponent,
+    LabelHiddenInputComponent,
+
+    //my-profile
+    MyProfileComponent,
+
+    //pipe
+    IUserInputPipe,
 
     //testing will be deleted later
     TestingHomeComponent
@@ -79,7 +95,8 @@ import { TestingHomeComponent } from './components/unique-pages/testing-home/tes
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
