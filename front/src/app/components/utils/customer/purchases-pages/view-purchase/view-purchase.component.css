@@ -15,7 +15,8 @@
   padding-top: 67px;
   border: none;
   background: none;
-  margin-left: 78%;
+  /* margin-left: 78%; */
+
 }
 button {
   height: 20px;
@@ -24,7 +25,6 @@ button {
 
 #reciept-body{
   display: flex;
-  /* margin-left: 100px;*/
 
 }
 #p-id{
@@ -33,12 +33,12 @@ button {
 #p-name{
   margin-left: 3%;
 }
-#p-price, #p-total{
-  margin-left: 78%;
+#p-price{
+  margin-left: 83%;
 }
 
 .line {
-  color: #a29393;
+  color: #eee0e0;
 }
 #reciept-total{
   display: flex;

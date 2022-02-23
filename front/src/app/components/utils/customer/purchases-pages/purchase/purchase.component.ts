@@ -3,7 +3,7 @@ import { IPurchase } from 'src/app/interfaces/Ipurchase';
 
 
 @Component({
-  selector: 'app-purchase',
+  selector: 'purchase',
   templateUrl: './purchase.component.html',
  // templateUrl: './purchasetable.component.html',
   styleUrls: ['./purchase.component.css']
@@ -14,7 +14,7 @@ export class PurchaseComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
 
