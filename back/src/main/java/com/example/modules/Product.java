@@ -34,6 +34,7 @@ public class Product {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="seller",nullable = false)
+    @JsonIgnore
     User seller;
     
     @Column(name="statusid",nullable = false)
