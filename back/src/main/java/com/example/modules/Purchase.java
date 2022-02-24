@@ -1,29 +1,58 @@
-package com.P02.modules;
+package com.example.modules;
 
 import java.sql.Timestamp;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.example.modules.enums.PurchasesStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+@Entity
+@Table(name="purchase")
 public class Purchase {
+
+    @Id
+    @Column(name="purchase_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int purchase_id;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="product",nullable = false)
     Product product;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="buyer",nullable = false)
     User buyer;
+
+    @Column(name="address",nullable = false)
     String address;
+
+    @Column(name="purchase",nullable = false)
     Timestamp purchase;
+
+    @Column(name="delivery",nullable = false)
     Timestamp delivery;
-    int statusid;
+
+    @Column(name="statusid",nullable = false)
+    PurchasesStatus statusid;
+
+    public Purchase() {}
 
     public Purchase(int purchase_id, Product product, User buyer, String address, Timestamp purchase,
-            Timestamp delivery, int statusid) {
+            Timestamp delivery, PurchasesStatus statusid) {
         this.purchase_id = purchase_id;
         this.product = product;
         this.buyer = buyer;
-        this.address = address;
-        this.purchase = purchase;
-        this.delivery = delivery;
-        this.statusid = statusid;
-    }
-
-    public Purchase(int purchase_id, String address, Timestamp purchase, Timestamp delivery, int statusid) {
-        this.purchase_id = purchase_id;
         this.address = address;
         this.purchase = purchase;
         this.delivery = delivery;
@@ -78,11 +107,11 @@ public class Purchase {
         this.delivery = delivery;
     }
 
-    public int getStatusid() {
+    public PurchasesStatus getStatusid() {
         return statusid;
     }
 
-    public void setStatusid(int statusid) {
+    public void setStatusid(PurchasesStatus statusid) {
         this.statusid = statusid;
     }
 
@@ -91,9 +120,5 @@ public class Purchase {
         return "Purchase [address=" + address + ", buyer=" + buyer + ", delivery=" + delivery + ", product=" + product
                 + ", purchase=" + purchase + ", purchase_id=" + purchase_id + ", statusid=" + statusid + "]";
     }
-    
-    
-    
-    
-
+ 
 }

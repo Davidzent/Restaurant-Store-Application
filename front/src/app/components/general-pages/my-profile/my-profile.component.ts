@@ -30,7 +30,7 @@ export class MyProfileComponent implements OnInit {
       fname:form[2].value,
       lname:form[3].value,
       email:form[4].value,
-      roleid:2
+      roleid:form[5].value
     }
     localStorage.setItem("user",JSON.stringify(user));
     location.reload();
