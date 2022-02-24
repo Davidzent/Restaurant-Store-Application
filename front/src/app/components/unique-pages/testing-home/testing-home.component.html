@@ -6,7 +6,7 @@
 <ng-template #login>
   <div *ngIf="isCustomer();then customer else seller"></div>
   <ng-template #customer>
-    <view-product></view-product>
+    
     <view-purchase></view-purchase>
     <purchase></purchase>
   </ng-template>
@@ -17,7 +17,7 @@
 
 <ng-template #nothing></ng-template>
 
-
+<view-product></view-product>
 
 
 

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/Iproduct';
 import { IUser } from 'src/app/interfaces/Iuser';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'view-product',
@@ -11,7 +12,13 @@ import { IUser } from 'src/app/interfaces/Iuser';
 
 export class ViewProductComponent implements OnInit {
 
-  constructor() { }
+ 
+
+  posts: any;
+
+  constructor(private http: HttpClient) { }
+
+ 
 
   ngOnInit() {
   }
