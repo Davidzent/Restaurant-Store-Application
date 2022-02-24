@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/Iproduct';
 import { IUser } from 'src/app/interfaces/Iuser';
+import { HttpClient } from '@angular/common/http';
+import { FoodishService } from '../../../../../services/foodish.service';
 
 @Component({
   selector: 'view-product',
@@ -11,9 +13,23 @@ import { IUser } from 'src/app/interfaces/Iuser';
 
 export class ViewProductComponent implements OnInit {
 
-  constructor() { }
+  image: string;
+  posts: any;
+
+  constructor(private foodishService: FoodishService) { }
+
+ 
 
   ngOnInit() {
+    this.getImage();
+  }
+
+  getImage() {
+    this.foodishService.getData('https://foodish-api.herokuapp.com/images/burger/burger11.jpg')
+      .subscribe(
+        imgData => this.image = imgData,
+        err => console.log(err)
+      );
   }
 
   Seller: IUser = {
