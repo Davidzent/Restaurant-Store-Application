@@ -30,11 +30,11 @@ public class ProductService {
 
     public Product create(Product p) {
         p.setProduct_id(0);
-        p.setSeller(ur.getById(p.getSeller().getUser_id()));
+        p.setSeller(ur.getById(1));
         return pr.save(p);
     }
 
-    public Product cancel(int product_id) {
+    public Product deactivate(int product_id) {
         Product p = pr.getById(product_id);
         p.setStatusid(ProductStatus.Close);
         return pr.save(p);
@@ -52,6 +52,10 @@ public class ProductService {
 
     public List<Product> getSellerProducts(User p){
         return pr.findAllBySeller(p);
+    }
+
+    public List<Product> getLikeName(String s){
+        return pr.findByNameContaining(s);
     }
     
 }

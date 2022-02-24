@@ -14,7 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.example.modules.enums.PurchasesStatus;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -40,7 +39,7 @@ public class Purchase {
     @Column(name="purchase",nullable = false)
     Timestamp purchase;
 
-    @Column(name="delivery",nullable = false)
+    @Column(name="delivery")
     Timestamp delivery;
 
     @Column(name="statusid",nullable = false)
