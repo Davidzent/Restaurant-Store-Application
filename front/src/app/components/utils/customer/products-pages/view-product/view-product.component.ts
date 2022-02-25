@@ -18,7 +18,7 @@ export class ViewProductComponent implements OnInit {
 
   constructor(private foodishService: FoodishService) { }
 
- 
+
 
   ngOnInit() {
     this.getImage();
@@ -48,7 +48,7 @@ product: IProduct = {
     description: 'An expensive hamburger',
     seller: this.Seller,
     name: 'This is a very expensive hamburger that is handcrafted by our finest chefs, It has beef, tomatoes, lettuce, and pickles.',
-    status: 1,
+    statusid: 1,
     typeid: 2
 }
 
@@ -64,7 +64,7 @@ product: IProduct = {
       lname:"",
       email:""   //don't know if we should display this
     },
-    status: 0,
+    statusid: 0,
     typeid: 0
   };
 

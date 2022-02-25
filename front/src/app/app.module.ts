@@ -42,6 +42,9 @@ import { ViewPurchaseComponent } from './components/utils/customer/purchases-pag
 //pipes
 import { IUserInputPipe } from './pipes/IUser-input/IUser-Input.pipe';
 
+//routing
+import { AppRoutingModule } from './routes/app.routing'
+
 //others
 
 
@@ -98,7 +101,8 @@ import { TestingHomeComponent } from './components/unique-pages/testing-home/tes
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

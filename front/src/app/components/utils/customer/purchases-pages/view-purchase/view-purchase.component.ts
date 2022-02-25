@@ -27,7 +27,7 @@ export class ViewPurchaseComponent implements OnInit {
         lname:"",
         email:""     //don't know if we should display this
       },
-      status: 0,
+      statusid: 0,
       typeid: 0
     },
     address:"",

@@ -1,3 +1,2 @@
-<p>
-  new-product works!
-</p>
+<a (click)="hide()" >Create Product</a>
+<modal (sendModalResponse)="createProduct($event)" [hidden]="params.hidden" [params]="params" ></modal>
