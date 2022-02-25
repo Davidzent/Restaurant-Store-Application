@@ -15,7 +15,7 @@ export class IUserInputPipe implements PipeTransform {
     let final:IlabelHiddenInput[]=[];
 
     for(let name in user){
-      if(name!="user_id"&&name!="roleid"){
+      if(name!="user_id"){
         let temp:IlabelHiddenInput={
           hidden: true,
           input: {

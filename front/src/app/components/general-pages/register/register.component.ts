@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
       fname:form[2].value,
       lname:form[3].value,
       email:form[4].value,
-      roleid:2
+      roleid:1
     }
     localStorage.setItem("user",JSON.stringify(user));
     location.reload();

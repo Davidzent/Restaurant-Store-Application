@@ -19,6 +19,7 @@ import { FooterComponent } from './components/general-pages/footer/footer.compon
 import { MyProfileComponent } from './components/general-pages/my-profile/my-profile.component';
 import { LoginComponent } from './components/general-pages/login/login.component';
 import { RegisterComponent } from './components/general-pages/register/register.component';
+import { LogoutComponent } from './components/general-pages/logout/logout.component';
 
 //utils modal
 import { ModalComponent } from './components/utils/general/modal/modal/modal.component';
@@ -32,7 +33,7 @@ import { ProductsComponent } from './components/utils/customer/products-pages/pr
 import { NewProductComponent } from './components/utils/customer/products-pages/new-product/new-product.component';
 import { ViewProductComponent } from './components/utils/customer/products-pages/view-product/view-product.component';
 
-//utils purchases
+// //utils purchases
 import { PurchaseComponent } from './components/utils/customer/purchases-pages/purchase/purchase.component';
 import { PurchasesComponent } from './components/utils/customer/purchases-pages/purchases/purchases.component';
 import { NewPurchaseComponent } from './components/utils/customer/purchases-pages/new-purchase/new-purchase.component';
@@ -58,6 +59,7 @@ import { TestingHomeComponent } from './components/unique-pages/testing-home/tes
     FooterComponent,
     LoginComponent,
     RegisterComponent,
+    LogoutComponent,
 
     //unique
     HomeComponent,

@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+
+import { Component, Input, OnInit } from "@angular/core";
 import { IPurchase } from 'src/app/interfaces/Ipurchase';
 
 @Component({
-  selector: 'app-view-purchase',
+  selector: 'view-purchase',
   templateUrl: './view-purchase.component.html',
   styleUrls: ['./view-purchase.component.css']
 })
@@ -34,5 +35,7 @@ export class ViewPurchaseComponent implements OnInit {
     delivery: 0,
     status: 0
   };
+
+
 
 }

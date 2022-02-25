@@ -1,38 +1,41 @@
 
 
-<header>
-  <h1 class='productname'>
-    {{ Product.description }}
-  </h1>
-  
-  <div class='sellerinfo'>
-    <h2>
-      Seller: {{ Product.seller?.fname }} {{ Product.seller?.lname }}
-      
-    </h2>
-    <h3>
-      email: {{ Product.seller?.email }}
-    </h3>
+<div class='modal-container'>
+  <div class='modal'>
+    <header>
+      <h1 class='productname'>
+        {{ Product.description }}
+      </h1>
+
+      <div class='sellerinfo'>
+        <h2>
+          Seller: {{ Product.seller?.fname }} {{ Product.seller?.lname }}
+
+        </h2>
+        <h3>
+          email: {{ Product.seller?.email }}
+        </h3>
+      </div>
+
+    </header>
+
+    <div class='info'>    
+      <img class='foodimage' src='{{image}}' *ngIf = 'image' alt ="your image"/>
+
+      <hr>
+
+      <h2>
+        Price: ${{ Product.price }}
+      </h2>
+
+      <p>
+        {{ Product.name }}
+      </p>
+
+      <button class="purchase button">Purchase</button>
+    </div>
   </div>
-  
-</header>
-
-
-<img class='foodimage' src='https://foodish-api.herokuapp.com/images/burger/burger11.jpg'>
-
-<hr>
-
-<h2>
-  Price: ${{ Product.price }}
-</h2>
-
-
-
-<p>
-  {{ Product.detailedDescription }}
-</p>
-
-
+</div>
 
 
 
