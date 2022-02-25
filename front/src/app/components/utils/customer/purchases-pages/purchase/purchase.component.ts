@@ -22,6 +22,7 @@ export class PurchaseComponent implements OnInit {
     purchase_id: 0,
     product: {
       product_id: 0,
+      name:'',
       price: 0,
       description: '',
       seller: {
