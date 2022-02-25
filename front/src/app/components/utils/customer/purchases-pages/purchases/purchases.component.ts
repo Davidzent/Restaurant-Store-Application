@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IPurchase } from 'src/app/interfaces/Ipurchase';
+import { PurchaseService } from 'src/app/services/purchase.service';
 
 @Component({
   selector: 'purchases',
@@ -7,9 +10,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PurchasesComponent implements OnInit {
 
-  constructor() { }
+  purchases:Observable<IPurchase[]> = new Observable<IPurchase[]>();
+
+  input:IPurchase = {
+    purchase_id: 0,
+    product: {
+      product_id: 0,
+      price: 0,
+      description: '',
+      seller: {
+        user_id:0,    //unique id no need to display this
+        fname:"",
+        lname:"",
+        email:""      //don't know if we should display this
+      },
+      status: 0,
+      typeid: 0
+    },
+    address:"",
+    purchase: 0,
+    delivery: 0,
+    status: 0
+  };
+
+  constructor(private purchaseService:PurchaseService) { }
 
   ngOnInit() {
+    this.purchaseService.getAll();
+    this.purchases=this.purchaseService.subject;
   }
 
+  getPokemon(name: string){
+    console.log(name);
+    this.purchaseService.getAll();
+  }
 }
