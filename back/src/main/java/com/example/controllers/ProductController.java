@@ -2,6 +2,10 @@ package com.example.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import com.example.exeptions.NotASellerException;
+import com.example.exeptions.NotLoginException;
 import com.example.modules.Product;
 import com.example.modules.User;
 import com.example.services.ProductService;
@@ -17,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import static com.example.controllers.AuthController.*;
 
 @RestController
 @RequestMapping("/product")
@@ -34,17 +40,26 @@ public class ProductController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Product create(@RequestBody Product p){
+    public Product create(@RequestBody Product p, HttpSession session) throws NotASellerException, NotLoginException{
+        User u = isLogin(session);
+        if(u==null)throw new NotLoginException();
+        if(isCustomer(u))throw new NotASellerException();
         return ps.create(p);
     }
     
     @PutMapping("/deactivate")
-    public Product deactivate(@RequestBody Product p){
+    public Product deactivate(@RequestBody Product p, HttpSession session) throws NotASellerException, NotLoginException{
+        User u = isLogin(session);
+        if(u==null)throw new NotLoginException();
+        if(isCustomer(u))throw new NotASellerException();
         return ps.deactivate(p.getProduct_id());
     }
     
     @PutMapping("/activate")
-    public Product activate(@RequestBody Product p){
+    public Product activate(@RequestBody Product p, HttpSession session) throws NotASellerException, NotLoginException{
+        User u = isLogin(session);
+        if(u==null)throw new NotLoginException();
+        if(isCustomer(u))throw new NotASellerException();
         return ps.activate(p.getProduct_id());
     }
 

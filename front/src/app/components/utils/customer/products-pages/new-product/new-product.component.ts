@@ -75,6 +75,4 @@ export class NewProductComponent implements OnInit {
     },
     footer: 'Register'
   }
-
-
 }
