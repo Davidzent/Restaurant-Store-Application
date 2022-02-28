@@ -1,3 +1,11 @@
-<p>
-  products works!
-</p>
+
+<!--
+<ul>
+  <li *ngFor='let product of products'>
+    <temp-product product ='product'></temp-product>
+   
+  </li>
+</ul>
+-->
+
+<temp-product *ngFor= 'let product of products' [product]='product'></temp-product>

@@ -50,6 +50,7 @@ import { AppRoutingModule } from './routes/app.routing'
 
 //testing this component is going to be removed before the presentation do not add anything important
 import { TestingHomeComponent } from './components/unique-pages/testing-home/testing-home.component';
+import { TempProductComponent } from './components/utils/customer/products-pages/temp-product/temp-product.component';
 
 
 @NgModule({
@@ -94,7 +95,8 @@ import { TestingHomeComponent } from './components/unique-pages/testing-home/tes
     IUserInputPipe,
 
     //testing will be deleted later
-    TestingHomeComponent
+    TestingHomeComponent,
+      TempProductComponent
 
   ],
   imports: [
