@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-5">
+    <purchases></purchases>
+  </div>
+  <div class="col-md-7">
+    <view-purchase
+      *ngIf="selectedPurchase; else infoText"
+      [input]="selectedPurchase"></view-purchase>
+    <ng-template #infoText>
+      <p>Purchase Item Detail</p>
+    </ng-template>
+  </div>
+</div>
+

@@ -13,7 +13,7 @@ import { PurchaseService } from 'src/app/services/purchase.service';
 export class PurchaseComponent implements OnInit {
 
   //register purchase service
-  constructor(private _purchaseService: PurchaseService) { }
+  constructor(private purchaseService: PurchaseService) { }
 
   ngOnInit() {
     // verify if this is correct
@@ -53,6 +53,8 @@ export class PurchaseComponent implements OnInit {
     status: 0
   };
 
-
+  onSelected(){
+    this.purchaseService.purchaseSelected.emit(this.input);
+  }
 
 }

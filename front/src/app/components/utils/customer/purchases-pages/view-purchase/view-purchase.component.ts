@@ -6,8 +6,12 @@ import { IPurchase } from 'src/app/interfaces/Ipurchase';
   styleUrls: ['./view-purchase.component.css']
 })
 export class ViewPurchaseComponent implements OnInit {
+  tax:number = 0;
+  total:number = 0;
   constructor() { }
   ngOnInit() {
+    this.tax = this.input.product.price * 0.1;
+    this.total = this.input.product.price + this.tax;
   }
   @Input() input:IPurchase = {
     purchase_id: 0,
