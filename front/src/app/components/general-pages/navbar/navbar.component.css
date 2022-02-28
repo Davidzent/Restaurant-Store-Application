@@ -11,10 +11,16 @@ img{
   margin-right: 17% !important;
 }
 ul li{
+  margin-top: 15px;
   display: inline;
-  float: left;
+  float: right;
 }
-li >a{
+
+.navbar-header{
+  float:left;
+}
+
+li >a, button{
   padding-right: 15px;
   text-decoration: none;
   color: #3b3939;
@@ -25,9 +31,6 @@ li >a:hover{
   font-style: italic;
 }
 
-.flex{
-  display: flex;
-}
 #img-card{
   width: 30px;
   height: 30px;

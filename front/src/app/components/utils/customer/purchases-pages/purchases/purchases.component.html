@@ -1,3 +1,1 @@
-<p>
-  purchases works!
-</p>
+<purchase *ngFor="let purchase of (purchases|async)" [input]="purchase"></purchase>
