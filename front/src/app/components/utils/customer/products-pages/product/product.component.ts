@@ -23,7 +23,7 @@ export class ProductComponent implements OnInit {
       lname:"",
       email:""   //don't know if we should display this
     },
-    status: 0,
+    statusid: 0,
     typeid: 0
   };
 

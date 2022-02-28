@@ -23,22 +23,4 @@ export class TestingHomeComponent implements OnInit {
     return this.isLogin()?this.user.roleid==1?true:false:false;
   }
 
-  purchase:IPurchase={
-    purchase_id:1, //unique id mainly used for form request
-    product:{
-      product_id: 1,
-      price: 50.56,
-      description: 'An expensive hamburger',
-      seller: JSON.parse(localStorage.getItem("user")||'{}'),
-      name: 'This is a very expensive hamburger that is handcrafted by our finest chefs, It has beef, tomatoes, lettuce, and pickles.',
-      status: 1,
-      typeid: 2
-    },   //product
-    buyer:JSON.parse(localStorage.getItem("user")||'{}'),        //user type
-    address:"Some address",
-    purchase:312312,    //timestamp this is going to be a date
-    delivery:312312,    //timestamp this is going to be a date
-    status:1       //current status
-  }
-
 }

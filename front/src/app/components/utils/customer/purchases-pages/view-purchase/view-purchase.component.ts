@@ -1,19 +1,14 @@
-
 import { Component, Input, OnInit } from "@angular/core";
 import { IPurchase } from 'src/app/interfaces/Ipurchase';
-
 @Component({
   selector: 'view-purchase',
   templateUrl: './view-purchase.component.html',
   styleUrls: ['./view-purchase.component.css']
 })
 export class ViewPurchaseComponent implements OnInit {
-
   constructor() { }
-
   ngOnInit() {
   }
-
   @Input() input:IPurchase = {
     purchase_id: 0,
     product: {
@@ -27,7 +22,7 @@ export class ViewPurchaseComponent implements OnInit {
         lname:"",
         email:""     //don't know if we should display this
       },
-      status: 0,
+      statusid: 0,
       typeid: 0
     },
     address:"",
@@ -35,7 +30,4 @@ export class ViewPurchaseComponent implements OnInit {
     delivery: 0,
     status: 0
   };
-
-
-
 }

@@ -1,25 +1,7 @@
 <!-- <button (click)="hide()">Open Modal</button>
 <modal [hidden]="params.hidden" [params]="params" ></modal> -->
 <navbar></navbar>
-
-<div *ngIf="isLogin();then login else nothing"></div>
-<ng-template #login>
-  <div *ngIf="isCustomer();then customer else seller"></div>
-  <ng-template #customer>
-
-    <view-purchase ></view-purchase>
-    <purchases></purchases>
-  </ng-template>
-  <ng-template #seller>
-    Please wait while we get the sellers page set up
-  </ng-template>
-</ng-template>
-
-<ng-template #nothing></ng-template>
-
-<products></products>
-
-<!--<view-product></view-product>-->
+<!-- <view-product></view-product> -->
 
 
 
