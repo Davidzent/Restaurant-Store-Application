@@ -4,6 +4,7 @@ import { IUser } from 'src/app/interfaces/Iuser';
 import { HttpClient } from '@angular/common/http';
 import { FoodishService } from '../../../../../services/foodish.service';
 
+
 @Component({
   selector: 'view-product',
   templateUrl: './view-product.component.html',
@@ -13,8 +14,17 @@ import { FoodishService } from '../../../../../services/foodish.service';
 
 export class ViewProductComponent implements OnInit {
 
+  user:IUser=JSON.parse(localStorage.getItem("user")||"{}");
+
   image: string;
   posts: any;
+
+  isLogin():boolean{
+    return this.user?this.user.user_id?true:false:false;
+  }
+  isCustomer():boolean{
+    return this.isLogin()?this.user.roleid==1?true:false:false;
+  }
 
   constructor(private foodishService: FoodishService) { }
 
