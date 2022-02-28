@@ -21,11 +21,8 @@ button {
   height: 20px;
   border: none;
 }
-
 #reciept-body{
   display: flex;
-
-
 }
 #p-id{
   padding-top: 3px;
@@ -36,7 +33,6 @@ button {
 #p-price{
   margin-left: 83%;
 }
-
 .line {
   color: #eee0e0;
 }
