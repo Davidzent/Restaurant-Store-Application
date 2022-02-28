@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IPurchase } from 'src/app/interfaces/Ipurchase';
+import { PurchaseService } from 'src/app/services/purchase.service';
 
 
 @Component({
@@ -11,12 +12,24 @@ import { IPurchase } from 'src/app/interfaces/Ipurchase';
 
 export class PurchaseComponent implements OnInit {
 
-  constructor() { }
+  //register purchase service
+  constructor(private _purchaseService: PurchaseService) { }
 
   ngOnInit() {
+    // verify if this is correct
+      this.IPurchase = this._purchaseService.getAll();
 
+      //compare to line above
+      this._purchaseService.getAll
+        .subscribe(data => this.purchase = data);
   }
 
+  // format date delivery date figure out where to put this
+  //  {{date | date: 'shortDate'}}
+
+
+  //should I register purchase service in the app.modules.ts
+  // such as: bootstrap: [PurchaseServe],
 
   @Input() input:IPurchase = {
     purchase_id: 0,
