@@ -32,7 +32,17 @@
         {{ Product.name }}
       </p>
 
-      <button class="purchase button">Purchase</button>
+      <div *ngIf="isCustomer();then customer else seller"></div>
+      <ng-template #customer>
+        <button class="purchase button">Purchase</button>
+      </ng-template>
+
+      <ng-template #seller>
+        <button class="purchase button">deactivate</button>
+        <button class="purchase button">activate</button>
+      </ng-template>
+      
+      
     </div>
   </div>
 </div>
