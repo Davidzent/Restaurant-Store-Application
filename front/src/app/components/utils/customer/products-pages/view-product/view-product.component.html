@@ -1,19 +1,21 @@
 
 
-<div class='modal-container'>
-  <div class='modal'>
+<div class='modal-containerbp'>
+  <div class='modalbp'>
+   
     <header>
+      <button type='button' class='exitbutton' (click)='closeWindow()'>exit</button>
       <h1 class='productname'>
-        {{ Product.description }}
+        {{ innerproduct.name }}
       </h1>
 
       <div class='sellerinfo'>
         <h2>
-          Seller: {{ Product.seller?.fname }} {{ Product.seller?.lname }}
+          Seller: {{ innerproduct.seller?.fname }} {{ innerproduct.seller?.lname }}
 
         </h2>
         <h3>
-          email: {{ Product.seller?.email }}
+          email: {{ innerproduct.seller?.email }}
         </h3>
       </div>
 
@@ -25,11 +27,11 @@
       <hr>
 
       <h2>
-        Price: ${{ Product.price }}
+        Price: ${{ innerproduct.price }}
       </h2>
 
       <p>
-        {{ Product.name }}
+        {{ innerproduct.description }}
       </p>
 
       <div *ngIf="isCustomer();then customer else seller"></div>

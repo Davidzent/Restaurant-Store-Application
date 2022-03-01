@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/Iproduct';
 import { IUser } from 'src/app/interfaces/Iuser';
 import { HttpClient } from '@angular/common/http';
@@ -16,8 +16,15 @@ export class ViewProductComponent implements OnInit {
 
   user:IUser=JSON.parse(localStorage.getItem("user")||"{}");
 
+  @Input() innerproduct: IProduct;
+  @Output() eventCloser = new EventEmitter<null>();
+
   image: string;
   posts: any;
+
+  category: string = 'pizza';
+  imgNum: string = '1';
+
 
   isLogin():boolean{
     return this.user?this.user.user_id?true:false:false;
@@ -31,16 +38,41 @@ export class ViewProductComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getImage();
+   this.getimgInfo();
+   this.getImage();
+  }
+
+  closeWindow(){
+    this.eventCloser.emit(null);
   }
 
   getImage() {
-    this.foodishService.getData('https://foodish-api.herokuapp.com/images/burger/burger11.jpg')
+    this.foodishService.getData(`https://foodish-api.herokuapp.com/images/${this.category}/${this.category}${this.imgNum}.jpg`)
       .subscribe(
         imgData => this.image = imgData,
         err => console.log(err)
       );
   }
+
+  getimgInfo() {
+      console.log(this.innerproduct.typeid);
+    if (this.innerproduct.typeid.toLocaleString() == 'Lunch'){
+        this.category = 'burger';
+        
+    }
+
+    if (this.innerproduct.typeid.toLocaleString() == 'Dinner'){
+      this.category = 'pasta';
+  }
+
+  if (this.innerproduct.typeid.toLocaleString() == 'Breakfast'){
+    this.category = 'pizza';
+  }
+
+  this.imgNum = this.innerproduct.product_id.toLocaleString();
+  
+  }
+
 
   Seller: IUser = {
     user_id: 1,   //unique id mainly used for form request
@@ -51,18 +83,6 @@ export class ViewProductComponent implements OnInit {
   email: 'bburger@gmail.com',
   roleid: 1
 }
-
-product: IProduct = {
-    product_id: 1,
-    price: 50.56,
-    description: 'An expensive hamburger',
-    seller: this.Seller,
-    name: 'This is a very expensive hamburger that is handcrafted by our finest chefs, It has beef, tomatoes, lettuce, and pickles.',
-    statusid: 1,
-    typeid: 2
-}
-
-  Product: IProduct = this.product;
 
   @Input() input:IProduct = {
     product_id: 0,

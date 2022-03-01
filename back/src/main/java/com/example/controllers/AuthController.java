@@ -14,17 +14,17 @@ public class AuthController {
 
     static public User isLogin(HttpSession session){
         return new User();
-        Object user=session.getAttribute("user");
-        if(user!=null){
-            return (User) session.getAttribute("user");
-        }
-        return null;
+       // Object user=session.getAttribute("user");
+        //if(user!=null){
+          //  return (User) session.getAttribute("user");
+        //}
+       // return null;
     }
     
     static public boolean isCustomer(User u){
         return true;
-        if(u.getRoleid()==UserRole.Customer)return true;
-        return false;
+       // if(u.getRoleid()==UserRole.Customer)return true;
+       // return false;
     }
 
     static public void clearSession(HttpSession session){

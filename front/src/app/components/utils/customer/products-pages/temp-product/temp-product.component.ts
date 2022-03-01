@@ -11,9 +11,10 @@ export class TempProductComponent implements OnInit {
   @Input() product: IProduct;
   
   image: string;
-
   category: string = 'pizza';
   imgNum: string = '1';
+
+  isclicked: boolean = false;
 
   constructor(private foodishService: FoodishService) { }
 
@@ -47,6 +48,11 @@ export class TempProductComponent implements OnInit {
 
   this.imgNum = this.product.product_id.toLocaleString();
   
+  }
+
+  clicked() {
+    this.isclicked = !this.isclicked;
+    console.log(this.isclicked);
   }
 
 

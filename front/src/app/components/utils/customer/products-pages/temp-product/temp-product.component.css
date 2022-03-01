@@ -11,7 +11,7 @@
 
 .container{
     margin: 10px;
-    background-color: rgb(219, 219, 219);
+    /*background-color: rgb(219, 219, 219);*/
     width: 300px;
     height: 300px;
     border-radius: 20%;
@@ -21,4 +21,18 @@
 .productname{
     text-align: center;
     
+}
+
+#selector{
+    background-color: rgba(167, 167, 167, 0.61);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px;
+    transform: translateY();
+    transition: box-shadow 0.5s, transform 0.5s;
+}
+
+#selector:hover{
+    box-shadow: 5px 10px 10px;
+	transform: translateY(-10px);
 }

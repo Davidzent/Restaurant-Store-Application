@@ -13,6 +13,10 @@ import com.example.services.PurchaseService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import static com.example.controllers.AuthController.isCustomer;
+import static com.example.controllers.AuthController.isLogin;
+
 @RestController
 @RequestMapping("/purchase")
 @CrossOrigin("*")
