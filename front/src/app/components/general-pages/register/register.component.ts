@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/interfaces/Iuser';
 import { IModalParams } from 'src/app/interfaces/modal/Imodal-params';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'register',
@@ -9,12 +10,13 @@ import { IModalParams } from 'src/app/interfaces/modal/Imodal-params';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   ngOnInit() {
   }
 
   setUser(form:any){
+    let role=form[5].value;
     let user:IUser={
       user_id:99,
       username:form[0].value,
@@ -22,10 +24,16 @@ export class RegisterComponent implements OnInit {
       fname:form[2].value,
       lname:form[3].value,
       email:form[4].value,
-      roleid:1
+      roleid:role
     }
-    localStorage.setItem("user",JSON.stringify(user));
-    location.reload();
+    // localStorage.setItem("user",JSON.stringify(user));
+    // location.reload();
+
+    if(role=='Seller'){
+      this.userService.registerSeller(user);
+    }else{
+      this.userService.registerCustomer(user);
+    }
   }
 
   hide():void{
@@ -36,6 +44,17 @@ export class RegisterComponent implements OnInit {
     hidden: true,
     title: 'Register',
     formParams: {
+      selects:[
+        {
+          name:"Role",
+          title:"Role",
+          id:"Roleid",
+          options:[
+            {value:"Customer",title:"Customer"},
+            {value:"Seller",title:"Seller"}
+          ]
+        }
+      ],
       inputs:[
         {
           name: "username",

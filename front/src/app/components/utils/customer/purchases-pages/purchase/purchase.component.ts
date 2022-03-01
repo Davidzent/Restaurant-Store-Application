@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IPurchase } from 'src/app/interfaces/Ipurchase';
-import { PurchaseService } from 'src/app/services/purchase.service';
+import { PurchaseService } from 'src/app/services/purchasee/purchase.service';
 
 
 @Component({
@@ -50,7 +50,7 @@ export class PurchaseComponent implements OnInit {
     address:"",
     purchase: 0,
     delivery: 0,
-    status: 0
+    statusid: 0
   };
 
 

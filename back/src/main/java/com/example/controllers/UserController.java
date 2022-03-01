@@ -2,6 +2,7 @@ package com.example.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.example.modules.User;
@@ -9,19 +10,13 @@ import com.example.modules.enums.UserRole;
 import com.example.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static com.example.controllers.AuthController.*;
 
 @RestController
 @RequestMapping(value="/user")
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 public class UserController {
     private UserService us;    
 
@@ -71,10 +66,23 @@ public class UserController {
         clearSession(session);
     }
 
-    @GetMapping("/")
-    public List<User> getAllUsers(){
-        return us.getAllUsers();
+    @GetMapping("/islogin")
+    public User isloged(HttpSession session){
+        return isLogin(session);
     }
+
+    @PutMapping("/update")
+    public User update(@RequestBody User u, HttpSession session){
+        User p=isLogin(session);
+        u.setUser_id(p.getUser_id());
+        u.setRoleid(p.getRoleid());
+        return us.update(u);
+    }
+
+    // @GetMapping("/")
+    // public List<User> getAllUsers(){
+    //     return us.getAllUsers();
+    // }
 
     // @GetMapping("/{id}")
     // @ResponseBody

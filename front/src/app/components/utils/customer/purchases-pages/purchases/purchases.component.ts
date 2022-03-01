@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IPurchase } from 'src/app/interfaces/Ipurchase';
-import { PurchaseService } from 'src/app/services/purchase.service';
+import { PurchaseService } from 'src/app/services/purchasee/purchase.service';
 
 @Component({
   selector: 'purchases',
@@ -30,7 +30,7 @@ export class PurchasesComponent implements OnInit {
     address:"",
     purchase: 0,
     delivery: 0,
-    status: 0
+    statusid: 0
   };
 
   constructor(private purchaseService:PurchaseService) { }

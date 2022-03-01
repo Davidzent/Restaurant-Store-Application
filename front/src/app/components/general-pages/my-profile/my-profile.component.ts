@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/interfaces/Iuser';
 import { IModalParams } from 'src/app/interfaces/modal/Imodal-params';
 import { IUserInputPipe } from 'src/app/pipes/IUser-input/IUser-Input.pipe';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'my-profile',
@@ -24,19 +25,18 @@ export class MyProfileComponent implements OnInit {
 
   updateUser(form:any){
     let user:IUser={
-      user_id:99,
+      user_id:this.user.user_id,
       username:form[0].value,
       password:form[1].value,
       fname:form[2].value,
       lname:form[3].value,
       email:form[4].value,
-      roleid:form[5].value
+      roleid:this.user.roleid
     }
-    localStorage.setItem("user",JSON.stringify(user));
-    location.reload();
+    this.userService.update(user);
   }
 
-  constructor() {
+  constructor(private userService:UserService) {
   }
 
   //modal

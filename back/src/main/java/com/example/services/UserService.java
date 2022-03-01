@@ -33,6 +33,10 @@ public class UserService {
         return ur.findAll();
     }
 
+    public User update(User u) {
+        return ur.save(u);
+    }
+
     // public Assignment getAssignmentById(int id){
     //     return ar.getById(id);
     // }

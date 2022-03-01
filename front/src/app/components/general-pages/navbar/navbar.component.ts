@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/interfaces/Iuser';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'navbar',
@@ -10,16 +11,20 @@ export class NavbarComponent implements OnInit {
 
   user:IUser=JSON.parse(localStorage.getItem("user")||"{}");
 
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   ngOnInit() {
+  }
+
+  checksession():void{
+    this.userService.islogin();
   }
 
   isLogin():boolean{
     return this.user?this.user.user_id?true:false:false;
   }
   isCustomer():boolean{
-    return this.isLogin()?this.user.roleid==1?true:false:false;
+    return this.isLogin()?this.user.roleid=="Customer"?true:false:false;
   }
 
 }

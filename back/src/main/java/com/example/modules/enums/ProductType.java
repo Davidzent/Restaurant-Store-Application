@@ -2,7 +2,7 @@ package com.example.modules.enums;
 
 public enum ProductType {
     None,
-    Breakfast,
+    Hambur,
     Lunch,
     Dinner,
     Dessert

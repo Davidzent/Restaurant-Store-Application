@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/Iproduct';
-import { FoodishService } from '../../../../../services/foodish.service';
+import { FoodishService } from '../../../../../services/foodish/foodish.service';
 
 @Component({
   selector: 'temp-product',
@@ -9,7 +9,7 @@ import { FoodishService } from '../../../../../services/foodish.service';
 })
 export class TempProductComponent implements OnInit {
   @Input() product: IProduct;
-  
+
   image: string;
 
   category: string = 'pizza';
@@ -34,7 +34,7 @@ export class TempProductComponent implements OnInit {
       console.log(this.product.typeid);
     if (this.product.typeid.toLocaleString() == 'Lunch'){
         this.category = 'burger';
-        
+
     }
 
     if (this.product.typeid.toLocaleString() == 'Dinner'){
@@ -46,7 +46,7 @@ export class TempProductComponent implements OnInit {
   }
 
   this.imgNum = this.product.product_id.toLocaleString();
-  
+
   }
 
 

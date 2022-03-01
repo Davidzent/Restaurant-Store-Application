@@ -6,12 +6,12 @@
     </div>
     <div>
       <ul>
+        <li><a (click)="checksession()"> check</a></li>
         <div *ngIf="isLogin();then user else guest"></div>
         <ng-template #user>
           <li><my-profile></my-profile></li>
 
           <li><logout></logout></li>
-
           <div  *ngIf="isCustomer();then customer else seller"></div>
           <ng-template #customer>
             <li><a href="#">

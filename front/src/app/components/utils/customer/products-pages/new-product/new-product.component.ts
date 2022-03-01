@@ -48,6 +48,11 @@ export class NewProductComponent implements OnInit {
           name: "description",
           title: "Description",
           type: "text"
+        },
+        {
+          name: "typeid",
+          title: "Type",
+          type: "text"
         }
       ],
       selects:[
@@ -58,17 +63,6 @@ export class NewProductComponent implements OnInit {
           options:[
             {value:"Open",title:"Open"},
             {value:"Close",title:"Close"}
-          ]
-        },
-        {
-          name:"typeid",
-          title:"Type",
-          id:"typeid",
-          options:[
-            {value:"Breakfast",title:"Breakfast"},
-            {value:"Lunch",title:"Lunch"},
-            {value:"Dinner",title:"Dinner"},
-            {value:"Dessert",title:"Dessert"}
           ]
         }
       ]
