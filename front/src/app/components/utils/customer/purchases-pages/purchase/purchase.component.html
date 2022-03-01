@@ -166,7 +166,7 @@
         <h3 style="text-decoration: none" class="detail-style">{{input.product.name}}</h3>
         <button
           id="view-id"
-          class="btn btn-success"
+          class="btn"
           type="submit"
           (click) = "onSelected()"
         >View detail</button>
@@ -175,7 +175,7 @@
 
       <div class="col-sm-2">
         <p class="single-price">Price</p>
-        <p>${{"30"}}</p>
+        <p>${{input.product.price}}</p>
       </div>
 
     </div>

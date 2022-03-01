@@ -1055,3 +1055,17 @@
   color: #533939;
 
 }
+.btn{
+  color: #1c1404;
+  background-color: #ddc99a;
+  height: 25px;
+  font-size: small;
+  padding-bottom: 15px;
+  padding-top: 1px;
+}
+
+.btn:hover{
+  color: #d4d0c9;
+  background-color: #658ea9;
+  font-style: italic;
+}

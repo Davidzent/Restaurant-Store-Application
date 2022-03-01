@@ -11,6 +11,7 @@ import {IPurchase} from "../../../../interfaces/Ipurchase";
 })
 export class PurchasePagesComponent implements OnInit {
   // itemInteract:boolean = true;
+  display = false;
   selectedPurchase: IPurchase ;
   constructor(private  purchaseService: PurchaseService) { }
 
@@ -19,8 +20,10 @@ export class PurchasePagesComponent implements OnInit {
       .subscribe(
         (purchase: IPurchase) => {
           this.selectedPurchase = purchase;
+          this.display = true;
         }
       );
   }
+
 
 }

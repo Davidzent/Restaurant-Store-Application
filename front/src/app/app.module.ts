@@ -54,6 +54,7 @@ import { TempProductComponent } from './components/utils/customer/products-pages
 import {PurchasePagesComponent} from "./components/utils/customer/purchases-pages/purchase-pages.component";
 
 
+
 @NgModule({
   declarations: [
     //main
@@ -98,7 +99,7 @@ import {PurchasePagesComponent} from "./components/utils/customer/purchases-page
 
     //testing will be deleted later
     TestingHomeComponent,
-      TempProductComponent
+      TempProductComponent,
 
   ],
   imports: [

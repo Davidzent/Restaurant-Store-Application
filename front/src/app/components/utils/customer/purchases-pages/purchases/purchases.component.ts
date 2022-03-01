@@ -30,7 +30,7 @@ export class PurchasesComponent implements OnInit {
     address:"",
     purchase: 0,
     delivery: 0,
-    status: 0
+    statusid: 0
   };
 
   constructor(private purchaseService:PurchaseService) { }
@@ -44,4 +44,6 @@ export class PurchasesComponent implements OnInit {
   //   console.log(name);
   //   this.purchaseService.getAll();
   // }
+
+
 }

@@ -9,5 +9,5 @@ export interface IPurchase {
   address:string,
   purchase:number,    //timestamp
   delivery?:number,    //timestamp
-  status:number|string       //current status
+  statusid:number|string       //current status
 }
