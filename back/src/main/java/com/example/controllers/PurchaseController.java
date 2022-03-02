@@ -12,7 +12,9 @@ import com.example.modules.User;
 import com.example.services.PurchaseService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
 
 import static com.example.controllers.AuthController.*;
 
@@ -35,49 +37,55 @@ public class PurchaseController {
         return ps.getAllPurchases();
     }
     @GetMapping("/list/user")
-    public List<Purchase> getAllPurchases(HttpSession session) throws NotLoginException, NotACustomerException{
+    public ResponseEntity<Object> getAllPurchases(HttpSession session){
         User u = isLogin(session);
-        if(u==null)throw new NotLoginException();
-        if(!isCustomer(u))return ps.getAllPurchases();
-        return ps.getAllPurchasesByUser(u.getUser_id());
+        if(u==null)return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        if(!isCustomer(u))return new ResponseEntity<>(new NotACustomerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        return new ResponseEntity<>(ps.getAllPurchasesByUser(u.getUser_id()), HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("/cart/user")
+    public ResponseEntity<Object> getAllCartItems(HttpSession session){
+        User u = isLogin(session);
+        if(u==null)return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        if(!isCustomer(u))return new ResponseEntity<>(new NotACustomerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        return new ResponseEntity<>(ps.getAllCartItems(u.getUser_id()), HttpStatus.ACCEPTED);
     }
 
     @PostMapping("/create")
     @ResponseBody
-    public Purchase create(@RequestBody Purchase p, HttpSession session) throws NotACustomerException, NotLoginException{
-
+    public ResponseEntity<Object> create(@RequestBody Purchase p, HttpSession session){
         p.setPurchase_id(0);
         User u = isLogin(session);
-        System.out.println(u);
-        if(u==null)throw new NotLoginException();
-        if(!isCustomer(u))throw new NotACustomerException();
+        if(u==null)return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        if(!isCustomer(u))return new ResponseEntity<>(new NotACustomerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
         p.setBuyer(u);
-        return ps.create(p);
+        return new ResponseEntity<>(ps.create(p), HttpStatus.ACCEPTED);
     }
 
     @PutMapping("/cancel")
     @ResponseBody
-    public Purchase cancel(@RequestBody Purchase p, HttpSession session) throws NotASellerException, NotLoginException{
+    public ResponseEntity<Object> cancel(@RequestBody Purchase p, HttpSession session){
         User u = isLogin(session);
-        if(u==null)throw new NotLoginException();
-        if(isCustomer(u))throw new NotASellerException();
-        return ps.cancel(p.getPurchase_id());
+        if(u==null)return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        if(isCustomer(u))return new ResponseEntity<>(new NotASellerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        return new ResponseEntity<>(ps.cancel(p.getPurchase_id()), HttpStatus.ACCEPTED);
     }
     @PutMapping("/confirm")
     @ResponseBody
-    public Purchase confirm(@RequestBody Purchase p, HttpSession session) throws NotASellerException, NotLoginException{
+    public ResponseEntity<Object> confirm(@RequestBody Purchase p, HttpSession session){
         User u = isLogin(session);
-        if(u==null)throw new NotLoginException();
-        if(isCustomer(u))throw new NotASellerException();
-        return ps.confirm(p.getPurchase_id());
+        if(u==null)return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        if(isCustomer(u))return new ResponseEntity<>(new NotASellerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        return new ResponseEntity<>(ps.confirm(p.getPurchase_id()), HttpStatus.ACCEPTED);
     }
     @PutMapping("/delivery")
     @ResponseBody
-    public Purchase delivery(@RequestBody Purchase p, HttpSession session) throws NotASellerException, NotLoginException{
+    public ResponseEntity<Object> delivery(@RequestBody Purchase p, HttpSession session){
         User u = isLogin(session);
-        if(u==null)throw new NotLoginException();
-        if(isCustomer(u))throw new NotASellerException();
-        return ps.delivery(p.getPurchase_id());
+        if(u==null)return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        if(isCustomer(u))return new ResponseEntity<>(new NotASellerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        return new ResponseEntity<>(ps.delivery(p.getPurchase_id()), HttpStatus.ACCEPTED);
     }
     
 

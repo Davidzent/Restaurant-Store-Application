@@ -29,6 +29,7 @@ public class ProductService {
     }
 
     public Product create(Product p) {
+        
         p.setProduct_id(0);
         p.setSeller(ur.getById(1));
         return pr.save(p);

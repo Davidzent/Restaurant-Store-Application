@@ -17,7 +17,7 @@ export class PurchaseService {
 
   getPurchases(): void{
     let url:string=`${environment.url.base}/purchase/`;
-    this.http.get<IPurchase[]>(url)
+    this.http.get<IPurchase[]>(url,environment.httpOptions)
       .pipe(
         catchError((e) => {
           debugger;
@@ -53,7 +53,7 @@ export class PurchaseService {
       statusid:0
     }
     let url:string=`${environment.url.base}/purchase/cancel`;
-    this.http.put<IPurchase>(url,purchase)
+    this.http.put<IPurchase>(url,purchase,environment.httpOptions)
       .pipe(
         catchError((e) => {
           console.log(e);
@@ -75,7 +75,7 @@ export class PurchaseService {
       statusid:0
     }
     let url:string=`${environment.url.base}/purchase/confirm`;
-    this.http.put<IPurchase>(url,purchase)
+    this.http.put<IPurchase>(url,purchase,environment.httpOptions)
       .pipe(
         catchError((e)=>{
           console.log(e);
@@ -98,7 +98,7 @@ export class PurchaseService {
       statusid:0
     }
     let url:string=`${environment.url.base}/purchase/delivery`;
-    this.http.put<IPurchase>(url,purchase)
+    this.http.put<IPurchase>(url,purchase,environment.httpOptions)
       .pipe(
         catchError((e)=>{
           console.log(e);

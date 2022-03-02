@@ -45,17 +45,8 @@ public class UserController {
         return u;
     }
 
-    @PostMapping("/login/customer")
+    @PostMapping("/login")
     public User LoginCus(@RequestBody User p, HttpSession session){
-        p.setRoleid(UserRole.Customer);
-        User u = us.Login(p.getUsername(),p.getPassword());
-        setSession(u, session);
-        return u;
-    }
-
-    @PostMapping("/login/seller")
-    public User LoginEmp(@RequestBody User p, HttpSession session){
-        p.setRoleid(UserRole.Seller);
         User u = us.Login(p.getUsername(),p.getPassword());
         setSession(u, session);
         return u;
