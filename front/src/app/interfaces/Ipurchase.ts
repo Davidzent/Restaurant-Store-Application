@@ -4,10 +4,10 @@ import { IUser } from "./Iuser"
 
 export interface IPurchase {
   purchase_id?:number, //unique id mainly used for form request
-  product:IProduct,   //product
+  product?:IProduct,   //product
   buyer?:IUser,        //user type
-  address:string,
-  purchase:number,    //timestamp
+  address?:string,
+  purchase?:number,    //timestamp
   delivery?:number,    //timestamp
-  status:number|string       //current status
+  statusid?:number|string       //current status
 }

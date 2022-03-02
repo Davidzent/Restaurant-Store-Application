@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/interfaces/Iuser';
 import { IModalParams } from 'src/app/interfaces/modal/Imodal-params';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'login',
@@ -9,12 +10,13 @@ import { IModalParams } from 'src/app/interfaces/modal/Imodal-params';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   ngOnInit() {
   }
 
   getUser(form:any){
+    let role=form[2].value;
     let user:IUser={
       user_id:99,
       username:form[0].value,
@@ -22,10 +24,17 @@ export class LoginComponent implements OnInit {
       fname:"John",
       lname:"Doe",
       email:"JohnDoe@email.com",
-      roleid:1
+      roleid:role
     }
-    localStorage.setItem("user",JSON.stringify(user));
-    location.reload();
+    if(role=='Seller'){
+      this.userService.loginSeller(user);
+    }else{
+      this.userService.loginCustomer(user);
+    }
+
+    // localStorage.setItem("user",JSON.stringify(user));
+    // location.reload();
+
   }
 
   hide():void{
@@ -36,6 +45,17 @@ export class LoginComponent implements OnInit {
     hidden: true,
     title: 'Log in',
     formParams: {
+      selects:[
+        {
+          name:"Role",
+          title:"Role",
+          id:"Roleid",
+          options:[
+            {value:"Customer",title:"Customer"},
+            {value:"Seller",title:"Seller"}
+          ]
+        }
+      ],
       inputs:[
         {
           name: "username",

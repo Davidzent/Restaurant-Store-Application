@@ -28,6 +28,6 @@ export class ViewPurchaseComponent implements OnInit {
     address:"",
     purchase: 0,
     delivery: 0,
-    status: 0
+    statusid: 0
   };
 }

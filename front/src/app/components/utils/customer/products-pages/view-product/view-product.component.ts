@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/Iproduct';
 import { IUser } from 'src/app/interfaces/Iuser';
 import { HttpClient } from '@angular/common/http';
-import { FoodishService } from '../../../../../services/foodish.service';
+import { FoodishService } from '../../../../../services/foodish/foodish.service';
 
 
 @Component({

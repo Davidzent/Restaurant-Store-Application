@@ -13,9 +13,12 @@ import com.example.services.PurchaseService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import static com.example.controllers.AuthController.*;
+
 @RestController
 @RequestMapping("/purchase")
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 public class PurchaseController {
     
     private PurchaseService ps;
@@ -31,9 +34,12 @@ public class PurchaseController {
     public List<Purchase> getAllPurchases(){
         return ps.getAllPurchases();
     }
-    @GetMapping("/list/{id}")
-    public List<Purchase> getAllPurchases(@PathVariable("id")int id){
-        return ps.getAllPurchasesByUser(id);
+    @GetMapping("/list/user")
+    public List<Purchase> getAllPurchases(HttpSession session) throws NotLoginException, NotACustomerException{
+        User u = isLogin(session);
+        if(u==null)throw new NotLoginException();
+        if(!isCustomer(u))return ps.getAllPurchases();
+        return ps.getAllPurchasesByUser(u.getUser_id());
     }
 
     @PostMapping("/create")
@@ -43,6 +49,7 @@ public class PurchaseController {
         User u = isLogin(session);
         if(u==null)throw new NotLoginException();
         if(!isCustomer(u))throw new NotACustomerException();
+        p.setBuyer(u);
         return ps.create(p);
     }
 

@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.example.modules.User;
@@ -13,7 +14,7 @@ public class AuthController {
     }
 
     static public User isLogin(HttpSession session){
-        return new User();
+        // return new User();
         Object user=session.getAttribute("user");
         if(user!=null){
             return (User) session.getAttribute("user");
@@ -22,7 +23,7 @@ public class AuthController {
     }
     
     static public boolean isCustomer(User u){
-        return true;
+        // return true;
         if(u.getRoleid()==UserRole.Customer)return true;
         return false;
     }

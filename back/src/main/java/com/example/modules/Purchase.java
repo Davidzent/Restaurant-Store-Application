@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.example.modules.enums.PurchasesStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -31,6 +32,7 @@ public class Purchase {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="buyer",nullable = false)
+    @JsonIgnore
     User buyer;
 
     @Column(name="address",nullable = false)

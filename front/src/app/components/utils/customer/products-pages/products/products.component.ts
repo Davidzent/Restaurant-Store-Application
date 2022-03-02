@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/app/services/product.service';
+import { ProductService } from 'src/app/services/product/product.service';
 
 
 @Component({
@@ -17,6 +17,6 @@ export class ProductsComponent implements OnInit {
     this.productservice.getProducts().subscribe(data => this.products = data);
   }
 
-  
+
 
 }
