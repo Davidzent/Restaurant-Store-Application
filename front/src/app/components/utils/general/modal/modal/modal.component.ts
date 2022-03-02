@@ -18,14 +18,21 @@ export class ModalComponent implements OnInit {
   @Output() sendModalResponse = new EventEmitter();
 
   onSubmit(form:any):void{
-    this.sendModalResponse.emit(form);
+    let empty:boolean=false;
     for(let i=0;i<form.length-1;i++){
-      form[i].value="";
+      if(form[i].value=="")empty=true;
     }
+    if(!empty){
+      this.sendModalResponse.emit(form);
+      for(let i=0;i<form.length-1&&form[i].localName!="select";i++){
+        form[i].value="";
+      }
+    }
+    
   }
 
-  hide():void{
-    this.params.hidden=!this.params.hidden;
+  hide(e:any):void{
+    if((e.target.className=='modalShadow2'||e.target.className=='close')&&!this.params.hidden)this.params.hidden=!this.params.hidden;
   }
 
   @Input() params:IModalParams = {

@@ -22,7 +22,6 @@ export class LabelHiddenInputComponent implements OnInit {
       title: '',
       value:'',
       id: '',
-      options: '',
       type: ''
     }
   };

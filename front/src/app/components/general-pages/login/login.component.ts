@@ -21,11 +21,7 @@ export class LoginComponent implements OnInit {
       username:form[0].value,
       password:form[1].value,
     }
-    if(role=='Seller'){
-      this.userService.loginSeller(user);
-    }else{
-      this.userService.loginCustomer(user);
-    }
+    this.userService.login(user);
 
     // sessionStorage.setItem("user",JSON.stringify(user));
     // location.reload();

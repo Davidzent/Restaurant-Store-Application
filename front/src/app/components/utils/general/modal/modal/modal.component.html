@@ -1,9 +1,9 @@
 <form [ngClass]="['params']" #form (ngSubmit)="onSubmit(form)" id ={{params.id}}>
-  <div id="modalShadow" class="modalShadow2">
+  <div id="modalShadow" (click)="hide($event)" class="modalShadow2">
       <div id="modal" class="modal78">
           <div id="modalWrapper" class="modalWrapper">
               <div id = "modalHeaderWrapper" class="modalHeaderWrapper">
-                  <span id='closeModal' class="close" (click)="hide()">&times;</span><p class="title">{{params.title}}</p>
+                  <span id='closeModal' class="close" (click)="hide($event)">&times;</span><p class="title">{{params.title}}</p>
               </div>
               <div id = "modalContentWrapper" class="modalContentWrapper">
                   <div id="modalContent" class="modalContent">

@@ -11,7 +11,7 @@
         <ng-template #user>
           <li><my-profile></my-profile></li>
 
-          <li><logout></logout></li>
+          
           <div  *ngIf="isCustomer();then customer else seller"></div>
           <ng-template #customer>
             <li><a href="#">
@@ -21,6 +21,7 @@
           <ng-template #seller>
             <li><new-product></new-product></li>
           </ng-template>
+          <li><logout></logout></li>
           <li><a href="products">Products</a></li>
           <li><a href="purchases">Purchases</a></li>
         </ng-template>

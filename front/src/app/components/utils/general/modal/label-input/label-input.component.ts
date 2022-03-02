@@ -18,7 +18,6 @@ export class LabelInputComponent implements OnInit {
     title: '',
     id: '',
     value:'',
-    options: '',
     type: ''
   };
 

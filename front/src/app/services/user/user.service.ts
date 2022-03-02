@@ -19,7 +19,7 @@ httpOptions = {
 
   islogin():void{
     let url:string=`${environment.url.base}/user/islogin`;
-    this.http.get<IUser>(url,this.httpOptions)
+    this.http.get<IUser>(url,environment.httpOptions)
       .pipe(
         catchError((e) => {
           console.log(e);
@@ -30,24 +30,9 @@ httpOptions = {
       });
   }
 
-  loginSeller(user:IUser): void{
-    let url:string=`${environment.url.base}/user/login/seller`;
-    this.http.post<IUser>(url,user,this.httpOptions)
-      .pipe(
-        catchError((e) => {
-          console.log(e);
-          return throwError(e);
-        })
-      ).subscribe((data) => {
-        console.log(data);
-        sessionStorage.setItem("user",JSON.stringify(data));
-        if(data)location.reload();
-      });
-  }
-
-  loginCustomer(user:IUser): void{
-    let url:string=`${environment.url.base}/user/login/customer`;
-    this.http.post<IUser>(url,user,this.httpOptions)
+  login(user:IUser): void{
+    let url:string=`${environment.url.base}/user/login`;
+    this.http.post<IUser>(url,user,environment.httpOptions)
       .pipe(
         catchError((e) => {
           console.log(e);
@@ -57,13 +42,12 @@ httpOptions = {
         console.log(data);
         sessionStorage.setItem("user",JSON.stringify(data));
         if(data)location.reload();
-
       });
   }
-
+  
   registerCustomer(user:IUser): void{
     let url:string=`${environment.url.base}/user/register/customer`;
-    this.http.post<IUser>(url,user,this.httpOptions)
+    this.http.post<IUser>(url,user,environment.httpOptions)
       .pipe(
         catchError((e) => {
           console.log(e);
@@ -80,7 +64,7 @@ httpOptions = {
 
   registerSeller(user:IUser): void{
     let url:string=`${environment.url.base}/user/register/seller`;
-    this.http.post<IUser>(url,user,this.httpOptions)
+    this.http.post<IUser>(url,user,environment.httpOptions)
       .pipe(
         catchError((e) => {
           console.log(e);
@@ -96,7 +80,7 @@ httpOptions = {
   }
   logOut():void{
     let url:string=`${environment.url.base}/user/logout`;
-    this.http.post<void>(url,null,this.httpOptions)
+    this.http.post<void>(url,null,environment.httpOptions)
       .pipe(
         catchError((e) => {
           console.log(e);
@@ -110,7 +94,7 @@ httpOptions = {
   }
   update(user:IUser):void{
     let url:string=`${environment.url.base}/user/update`;
-    this.http.put<IUser>(url,user,this.httpOptions)
+    this.http.put<IUser>(url,user,environment.httpOptions)
       .pipe(
         catchError((e) => {
           console.log(e);

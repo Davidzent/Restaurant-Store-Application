@@ -71,7 +71,12 @@ public class PurchaseService {
 
     public List<Purchase> getAllPurchasesByUser(int id) {
         User u = ur.getById(id);
-        return pr.findAllByBuyer(u);
+        return pr.findAllByBuyerAndStatusidNot(u,PurchasesStatus.Cart);
+    }
+
+    public Object getAllCartItems(int user_id) {
+        User u = ur.getById(user_id);
+        return pr.findAllByBuyerAndStatusid(u,PurchasesStatus.Cart);
     }
     
 }
