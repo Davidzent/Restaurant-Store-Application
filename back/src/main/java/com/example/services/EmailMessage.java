@@ -26,7 +26,6 @@ public class EmailMessage {
     private static Session session;
 
     static{
-        /*
         pass=System.getenv("PROJECT_02_EMAIL_P");
         from=System.getenv("PROJECT_02_EMAIL");
         Properties props = new Properties();
@@ -40,8 +39,6 @@ public class EmailMessage {
             }
          });
         System.out.print(session);
-
-         */
     }
 
 
