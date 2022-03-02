@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { IPurchase } from 'src/app/interfaces/Ipurchase';
-import {PurchaseService} from "../../../../../services/purchase.service";
+import { PurchaseService } from "src/app/services/purchasee/purchase.service";
 @Component({
   selector: 'view-purchase',
   templateUrl: './view-purchase.component.html',

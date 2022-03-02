@@ -1,10 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable ,EventEmitter} from '@angular/core';
 import { catchError, Observable, Subject, throwError } from 'rxjs';
-import { IProduct } from '../interfaces/Iproduct';
-import { IPurchase } from '../interfaces/Ipurchase';
-import {environment} from "../../environments/environment";
-import {IUser} from "../interfaces/Iuser";
+import { IPurchase } from 'src/app/interfaces/Ipurchase';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +24,6 @@ export class PurchaseService {
           return throwError(e);
         })
       ).subscribe((data) => {
-        debugger;
         console.log(data);
         this.purchases=data;
         this.subject.next(this.purchases);

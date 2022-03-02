@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PurchaseService} from "../../../../services/purchase.service";
-import {IPurchase} from "../../../../interfaces/Ipurchase";
+import { PurchaseService } from 'src/app/services/purchasee/purchase.service';
+import { IPurchase } from "../../../../interfaces/Ipurchase";
 
 
 @Component({
