@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Subject, throwError } from 'rxjs';
 import { IUser } from '../../interfaces/Iuser';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +16,9 @@ httpOptions = {
   withCredentials: true
  };
 
-  private url:string='http://localhost:7000';
 
   islogin():void{
-    let url:string=`${this.url}/user/islogin`;
+    let url:string=`${environment.url.base}/user/islogin`;
     this.http.get<IUser>(url,this.httpOptions)
       .pipe(
         catchError((e) => {
@@ -31,7 +31,7 @@ httpOptions = {
   }
 
   loginSeller(user:IUser): void{
-    let url:string=`${this.url}/user/login/seller`;
+    let url:string=`${environment.url.base}/user/login/seller`;
     this.http.post<IUser>(url,user,this.httpOptions)
       .pipe(
         catchError((e) => {
@@ -40,13 +40,13 @@ httpOptions = {
         })
       ).subscribe((data) => {
         console.log(data);
-        localStorage.setItem("user",JSON.stringify(data));
+        sessionStorage.setItem("user",JSON.stringify(data));
         if(data)location.reload();
       });
   }
 
   loginCustomer(user:IUser): void{
-    let url:string=`${this.url}/user/login/customer`;
+    let url:string=`${environment.url.base}/user/login/customer`;
     this.http.post<IUser>(url,user,this.httpOptions)
       .pipe(
         catchError((e) => {
@@ -55,14 +55,14 @@ httpOptions = {
         })
       ).subscribe((data) => {
         console.log(data);
-        localStorage.setItem("user",JSON.stringify(data));
+        sessionStorage.setItem("user",JSON.stringify(data));
         if(data)location.reload();
 
       });
   }
 
   registerCustomer(user:IUser): void{
-    let url:string=`${this.url}/user/register/customer`;
+    let url:string=`${environment.url.base}/user/register/customer`;
     this.http.post<IUser>(url,user,this.httpOptions)
       .pipe(
         catchError((e) => {
@@ -71,7 +71,7 @@ httpOptions = {
         })
       ).subscribe((data) => {
         console.log(data);
-        localStorage.setItem("user",JSON.stringify(data));
+        sessionStorage.setItem("user",JSON.stringify(data));
         if(data)location.reload();
 
 
@@ -79,7 +79,7 @@ httpOptions = {
   }
 
   registerSeller(user:IUser): void{
-    let url:string=`${this.url}/user/register/seller`;
+    let url:string=`${environment.url.base}/user/register/seller`;
     this.http.post<IUser>(url,user,this.httpOptions)
       .pipe(
         catchError((e) => {
@@ -88,14 +88,14 @@ httpOptions = {
         })
       ).subscribe((data) => {
         console.log(data);
-        localStorage.setItem("user",JSON.stringify(data));
+        sessionStorage.setItem("user",JSON.stringify(data));
                 if(data)location.reload();
 
 
       });
   }
   logOut():void{
-    let url:string=`${this.url}/user/logout`;
+    let url:string=`${environment.url.base}/user/logout`;
     this.http.post<void>(url,null,this.httpOptions)
       .pipe(
         catchError((e) => {
@@ -104,12 +104,12 @@ httpOptions = {
         })
       ).subscribe((data) => {
         console.log(data);
-        localStorage.setItem("user","");
+        sessionStorage.setItem("user","");
         location.reload();
       });
   }
   update(user:IUser):void{
-    let url:string=`${this.url}/user/update`;
+    let url:string=`${environment.url.base}/user/update`;
     this.http.put<IUser>(url,user,this.httpOptions)
       .pipe(
         catchError((e) => {
@@ -118,7 +118,7 @@ httpOptions = {
         })
       ).subscribe((data) => {
         console.log(data);
-        localStorage.setItem("user",JSON.stringify(data));
+        sessionStorage.setItem("user",JSON.stringify(data));
         if(data)location.reload();
 
       });

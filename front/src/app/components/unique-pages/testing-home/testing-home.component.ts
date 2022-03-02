@@ -9,7 +9,7 @@ import { IUser } from 'src/app/interfaces/Iuser';
 })
 export class TestingHomeComponent implements OnInit {
 
-  user:IUser=JSON.parse(localStorage.getItem("user")||"{}");
+  user:IUser=JSON.parse(sessionStorage.getItem("user")||"{}");
 
   constructor() { }
 

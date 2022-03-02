@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class NavbarComponent implements OnInit {
 
-  user:IUser=JSON.parse(localStorage.getItem("user")||"{}");
+  user:IUser=JSON.parse(sessionStorage.getItem("user")||"{}");
 
   constructor(private userService:UserService) { }
 

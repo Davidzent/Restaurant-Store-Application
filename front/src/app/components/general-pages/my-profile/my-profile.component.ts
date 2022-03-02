@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
-  user:IUser = JSON.parse(localStorage.getItem("user")||'{}');
+  user:IUser = JSON.parse(sessionStorage.getItem("user")||'{}');
 
   pipe:IUserInputPipe = new IUserInputPipe();
 
@@ -25,13 +25,11 @@ export class MyProfileComponent implements OnInit {
 
   updateUser(form:any){
     let user:IUser={
-      user_id:this.user.user_id,
       username:form[0].value,
       password:form[1].value,
       fname:form[2].value,
       lname:form[3].value,
-      email:form[4].value,
-      roleid:this.user.roleid
+      email:form[4].value
     }
     this.userService.update(user);
   }
@@ -41,7 +39,7 @@ export class MyProfileComponent implements OnInit {
 
   //modal
   hide():void{
-    this.user = JSON.parse(localStorage.getItem("user")||'{}');
+    this.user = JSON.parse(sessionStorage.getItem("user")||'{}');
     this.params={
       hidden: this.params.hidden=!this.params.hidden,
       title: 'My Account',

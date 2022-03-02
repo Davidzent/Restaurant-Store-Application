@@ -18,13 +18,8 @@ export class LoginComponent implements OnInit {
   getUser(form:any){
     let role=form[2].value;
     let user:IUser={
-      user_id:99,
       username:form[0].value,
       password:form[1].value,
-      fname:"John",
-      lname:"Doe",
-      email:"JohnDoe@email.com",
-      roleid:role
     }
     if(role=='Seller'){
       this.userService.loginSeller(user);
@@ -32,7 +27,7 @@ export class LoginComponent implements OnInit {
       this.userService.loginCustomer(user);
     }
 
-    // localStorage.setItem("user",JSON.stringify(user));
+    // sessionStorage.setItem("user",JSON.stringify(user));
     // location.reload();
 
   }

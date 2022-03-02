@@ -18,7 +18,6 @@ export class RegisterComponent implements OnInit {
   setUser(form:any){
     let role=form[5].value;
     let user:IUser={
-      user_id:99,
       username:form[0].value,
       password:form[1].value,
       fname:form[2].value,
@@ -26,7 +25,7 @@ export class RegisterComponent implements OnInit {
       email:form[4].value,
       roleid:role
     }
-    // localStorage.setItem("user",JSON.stringify(user));
+    // sessionStorage.setItem("user",JSON.stringify(user));
     // location.reload();
 
     if(role=='Seller'){

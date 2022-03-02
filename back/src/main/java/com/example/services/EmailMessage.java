@@ -46,7 +46,7 @@ public class EmailMessage {
     }
 
     public static void sendmail(Purchase p) throws AddressException, MessagingException, IOException {
-        String emailto="mnpuertor@gmail.com";    //p.getBuyer().getEmail();
+        String emailto="temp@email.com";    //p.getBuyer().getEmail(); //change this once everything is done we don't want to get emails right now
         Message msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(from, false));
      

@@ -14,7 +14,7 @@ import { FoodishService } from '../../../../../services/foodish/foodish.service'
 
 export class ViewProductComponent implements OnInit {
 
-  user:IUser=JSON.parse(localStorage.getItem("user")||"{}");
+  user:IUser=JSON.parse(sessionStorage.getItem("user")||"{}");
 
   @Input() innerproduct: IProduct;
   @Output() eventCloser = new EventEmitter<null>();

@@ -14,7 +14,7 @@ export class LogoutComponent implements OnInit {
   }
   logout():void{
     this.userService.logOut();
-    localStorage.setItem("user","");
+    sessionStorage.setItem("user","");
     location.reload();
   }
 
