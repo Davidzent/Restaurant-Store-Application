@@ -26,8 +26,8 @@ public class EmailMessage {
     private static Session session;
 
     static{
-        from=System.getenv("PROJECT_02_EMAIL_P");
-        pass=System.getenv("PROJECT_02_EMAIL");
+        pass=System.getenv("PROJECT_02_EMAIL_P");
+        from=System.getenv("PROJECT_02_EMAIL");
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -46,8 +46,7 @@ public class EmailMessage {
     }
 
     public static void sendmail(Purchase p) throws AddressException, MessagingException, IOException {
-        p.getBuyer().setPassword("password");
-        String emailto="hifeyo2381@robhung.com";    //p.getBuyer().getEmail();
+        String emailto="mnpuertor@gmail.com";    //p.getBuyer().getEmail();
         Message msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(from, false));
      
