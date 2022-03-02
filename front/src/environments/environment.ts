@@ -7,6 +7,10 @@ export const environment = {
   url: {
     base: 'http://localhost:7000',
     imagrs: ''
+  },
+  Seller:{
+    email:"RickAndMortyKrustyKrab@outlook.com",
+    company:"Rick&Morty"
   }
 };
 
