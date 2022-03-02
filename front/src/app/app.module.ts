@@ -31,7 +31,7 @@ import { LabelHiddenInputComponent } from './components/utils/general/modal/labe
 import { ProductComponent } from './components/utils/customer/products-pages/product/product.component';
 import { ProductsComponent } from './components/utils/customer/products-pages/products/products.component';
 import { NewProductComponent } from './components/utils/customer/products-pages/new-product/new-product.component';
-import { ViewProductComponent } from './components/utils/customer/products-pages/view-product/view-product.component';
+//import { ViewProductComponent } from './components/utils/customer/products-pages/view-product/view-product.component';
 
 // //utils purchases
 import { PurchaseComponent } from './components/utils/customer/purchases-pages/purchase/purchase.component';
@@ -43,7 +43,7 @@ import { ViewPurchaseComponent } from './components/utils/customer/purchases-pag
 import { IUserInputPipe } from './pipes/IUser-input/IUser-Input.pipe';
 
 //routing
-import { AppRoutingModule } from './routes/app.routing'
+import { AppRoutingModule, routingComponents } from './routes/app.routing';
 
 //others
 
@@ -52,7 +52,7 @@ import { AppRoutingModule } from './routes/app.routing'
 import { TestingHomeComponent } from './components/unique-pages/testing-home/testing-home.component';
 import { TempProductComponent } from './components/utils/customer/products-pages/temp-product/temp-product.component';
 import {PurchasePagesComponent} from "./components/utils/customer/purchases-pages/purchase-pages.component";
-
+import { GetImgPipe } from './pipes/get-img/get-img.pipe';
 
 
 @NgModule({
@@ -76,7 +76,8 @@ import {PurchasePagesComponent} from "./components/utils/customer/purchases-page
     ProductComponent,
     ProductsComponent,
     NewProductComponent,
-    ViewProductComponent,
+    //ViewProductComponent,
+    routingComponents,
 
     //purchases
     PurchaseComponent,
@@ -100,6 +101,7 @@ import {PurchasePagesComponent} from "./components/utils/customer/purchases-page
     //testing will be deleted later
     TestingHomeComponent,
       TempProductComponent,
+      GetImgPipe
 
   ],
   imports: [

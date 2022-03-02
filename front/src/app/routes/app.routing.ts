@@ -5,6 +5,7 @@ import { HomeComponent } from "../components/unique-pages/home/home.component";
 import { CartComponent } from "../components/unique-pages/cart/cart.component";
 import { ProductsComponent } from '../components/utils/customer/products-pages/products/products.component';
 import { PurchasesComponent } from '../components/utils/customer/purchases-pages/purchases/purchases.component';
+import { ViewProductComponent } from '../components/utils/customer/products-pages/view-product/view-product.component';
 
 const appRoutes:Routes = [
   {path:'', redirectTo:'/home',pathMatch:'full'},
@@ -13,7 +14,8 @@ const appRoutes:Routes = [
   // {path:'register', component:HomeComponent},
   {path:'products',component:ProductsComponent},
   {path:'purchases',component:PurchasesComponent},
-  {path:'cart', component:CartComponent}
+  {path:'cart', component:CartComponent},
+  {path: 'viewproduct', component: ViewProductComponent}
 
 ];
 
@@ -26,3 +28,4 @@ const appRoutes:Routes = [
   exports:[RouterModule]
 })
 export class AppRoutingModule { }
+export const routingComponents = [ViewProductComponent]
