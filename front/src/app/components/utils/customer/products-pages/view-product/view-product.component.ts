@@ -3,6 +3,7 @@ import { IProduct } from 'src/app/interfaces/Iproduct';
 import { IUser } from 'src/app/interfaces/Iuser';
 import { HttpClient } from '@angular/common/http';
 import { FoodishService } from '../../../../../services/foodish/foodish.service';
+import { PurchaseService } from '../../../../../services/purchasee/purchase.service';
 
 
 @Component({
@@ -30,10 +31,10 @@ export class ViewProductComponent implements OnInit {
     return this.user?this.user.user_id?true:false:false;
   }
   isCustomer():boolean{
-    return this.isLogin()?this.user.roleid==1?true:false:false;
+    return this.isLogin()?this.user.roleid=="Customer"?true:false:false;
   }
 
-  constructor(private foodishService: FoodishService) { }
+  constructor(private foodishService: FoodishService, private purchaseService: PurchaseService) { }
 
 
 
@@ -56,21 +57,25 @@ export class ViewProductComponent implements OnInit {
 
   getimgInfo() {
       console.log(this.innerproduct.typeid);
-    if (this.innerproduct.typeid.toLocaleString() == 'Lunch'){
+    if (this.innerproduct.typeid.toLocaleString() == 'Hambur'){
         this.category = 'burger';
         
     }
 
-    if (this.innerproduct.typeid.toLocaleString() == 'Dinner'){
+    if (this.innerproduct.typeid.toLocaleString() == 'pasta'){
       this.category = 'pasta';
   }
 
-  if (this.innerproduct.typeid.toLocaleString() == 'Breakfast'){
+  if (this.innerproduct.typeid.toLocaleString() == 'pizza'){
     this.category = 'pizza';
   }
 
   this.imgNum = this.innerproduct.product_id.toLocaleString();
   
+  }
+
+  generatePurchase(){
+    this.purchaseService.createPurchase(this.innerproduct);
   }
 
 
