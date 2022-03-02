@@ -45,8 +45,10 @@ public class PurchaseController {
     @PostMapping("/create")
     @ResponseBody
     public Purchase create(@RequestBody Purchase p, HttpSession session) throws NotACustomerException, NotLoginException{
+
         p.setPurchase_id(0);
         User u = isLogin(session);
+        System.out.println(u);
         if(u==null)throw new NotLoginException();
         if(!isCustomer(u))throw new NotACustomerException();
         p.setBuyer(u);

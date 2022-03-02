@@ -3,6 +3,7 @@ import { Injectable ,EventEmitter} from '@angular/core';
 import { catchError, Observable, Subject, throwError } from 'rxjs';
 import { IPurchase } from 'src/app/interfaces/Ipurchase';
 import { environment } from 'src/environments/environment';
+import { IProduct } from 'src/app/interfaces/Iproduct';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,19 @@ export class PurchaseService {
         this.purchases=data;
         this.subject.next(this.purchases);
       });
+  }
+
+  createPurchase(IProduct): void{
+    let url:string=`${environment.url.base}/purchase/create`;
+    const body = {   
+      product:{
+          product_id:2
+      },
+      address:"This is my address.",
+      statusid:"Pending"
+    };
+
+    this.http.post<any>(url, body, environment.httpOptions).subscribe((data) => {console.log(data)});
   }
 
   declinePurchase(purchase_id):void{

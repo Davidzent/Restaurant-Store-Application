@@ -33,16 +33,16 @@ export class TempProductComponent implements OnInit {
 
   getimgInfo() {
       console.log(this.product.typeid);
-    if (this.product.typeid.toLocaleString() == 'Lunch'){
+    if (this.product.typeid.toLocaleString() == 'Hambur'){
         this.category = 'burger';
 
     }
 
-    if (this.product.typeid.toLocaleString() == 'Dinner'){
+    if (this.product.typeid.toLocaleString() == 'pasta'){
       this.category = 'pasta';
   }
 
-  if (this.product.typeid.toLocaleString() == 'Breakfast'){
+  if (this.product.typeid.toLocaleString() == 'pizza'){
     this.category = 'pizza';
   }
 
