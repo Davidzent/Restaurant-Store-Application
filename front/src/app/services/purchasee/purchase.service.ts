@@ -20,7 +20,6 @@ export class PurchaseService {
     this.http.get<IPurchase[]>(url,environment.httpOptions)
       .pipe(
         catchError((e) => {
-          debugger;
           console.log(e);
           return throwError(e);
         })
