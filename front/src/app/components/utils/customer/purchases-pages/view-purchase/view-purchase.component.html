@@ -39,7 +39,7 @@
         <img id="view-imgae" src="../../../../../assets/images/burger 1.png" alt="image">
 
         <div id="reciept-description">
-          <p>Product ID: {{input.product.product_id}}</p>
+          <p>Product ID: {{input.purchase_id}}</p>
           <p>Description: {{input.product.description}}</p>
         </div>
 
@@ -52,8 +52,8 @@
         </div>
         <div class="price col-sm-3">
           <p>Price: ${{input.product.price}}</p>
-          <!-- <p>Tax: ${{tax}}</p>
-          <p>Total: ${{total}}</p> -->
+          <p>Tax: ${{tax}}</p>
+          <p>Total: ${{total | number: '1.2-2'}}</p>
         </div>
       </div>
 
@@ -64,10 +64,12 @@
         <P>{{input.address}}</P>
       </div>
       <div id="buttons">
-        <button class="btn btn-success" type="submit">Accept</button>
-        <button class="btn btn-success" type="submit">Decline</button>
+        <button (click)= "approvePurchase(input.purchase_id)" class="btn" type="submit">Accept</button>
+        <button (click) = "declinePurchase(input.purchase_id)" class="btn" type="submit">Decline</button>
+        <button (click) = "deliveryPurchase(input.purchase_id)"class="btn btn-success" type="submit">Delivery</button>
       </div>
     </div>
   </div>
   <div class="col-sm-2"></div>
 </div>
+

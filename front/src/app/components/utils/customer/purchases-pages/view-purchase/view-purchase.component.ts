@@ -1,13 +1,24 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { IPurchase } from 'src/app/interfaces/Ipurchase';
+import {PurchaseService} from "../../../../../services/purchase.service";
 @Component({
   selector: 'view-purchase',
   templateUrl: './view-purchase.component.html',
   styleUrls: ['./view-purchase.component.css']
 })
 export class ViewPurchaseComponent implements OnInit {
-  constructor() { }
+  tax:number = 0;
+  total:number = 0;
+
+  constructor(private purchaseService:PurchaseService) { }
+
+  ngOnChanges(){
+    this.tax = Number((this.input.product.price * 0.1).toFixed(2));
+    this.total = this.input.product.price + this.tax;
+  }
+
   ngOnInit() {
+
   }
   @Input() input:IPurchase = {
     purchase_id: 0,
@@ -30,4 +41,16 @@ export class ViewPurchaseComponent implements OnInit {
     delivery: 0,
     statusid: 0
   };
+
+
+  approvePurchase(purchaseId){
+    this.purchaseService.approvePurchase(purchaseId);
+  }
+  declinePurchase(purchaseId) {
+    this.purchaseService.declinePurchase(purchaseId);
+  }
+  deliveryPurchase(purchaseId) {
+    this.purchaseService.deliveryPurchase(purchaseId);
+  }
+
 }

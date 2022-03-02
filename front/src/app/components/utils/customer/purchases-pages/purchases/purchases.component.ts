@@ -36,12 +36,14 @@ export class PurchasesComponent implements OnInit {
   constructor(private purchaseService:PurchaseService) { }
 
   ngOnInit() {
-    this.purchaseService.getAll();
-    this.purchases=this.purchaseService.subject;
+    this.purchaseService.getPurchases();
+    this.purchases = this.purchaseService.subject;
   }
 
-  getPokemon(name: string){
-    console.log(name);
-    this.purchaseService.getAll();
-  }
+  // getPokemon(name: string){
+  //   console.log(name);
+  //   this.purchaseService.getAll();
+  // }
+
+
 }
