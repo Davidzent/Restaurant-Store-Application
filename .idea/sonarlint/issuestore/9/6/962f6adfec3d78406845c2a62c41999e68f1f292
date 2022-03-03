@@ -1,6 +1,0 @@
-
-o	java:S116"URename this field "product_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©˜Úëþÿÿÿÿ
-c	java:S100<"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÕŸÅõ
-h	java:S100@"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üŒ¸õúÿÿÿÿ
-f	java:S1171"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô¦æá
-k	java:S117@"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üŒ¸õúÿÿÿÿ
