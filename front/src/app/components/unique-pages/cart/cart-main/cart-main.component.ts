@@ -3,7 +3,7 @@ import { IPurchase } from 'src/app/interfaces/Ipurchase';
 import { PurchaseService } from 'src/app/services/purchasee/purchase.service';
 
 @Component({
-  selector: 'cart',
+  selector: 'cart-main',
   templateUrl: './cart-main.component.html',
   styleUrls: ['./cart-main.component.css']
 })
