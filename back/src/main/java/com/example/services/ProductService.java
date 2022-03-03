@@ -50,6 +50,9 @@ public class ProductService {
     public List<Product> getAllProducts() {
         return pr.findAll();
     }
+    public List<Product> getAllProductsByStatus(ProductStatus s) {
+        return pr.findAllByStatusid(s);
+    }
 
     public List<Product> getSellerProducts(User p){
         return pr.findAllBySeller(p);
@@ -57,6 +60,9 @@ public class ProductService {
 
     public List<Product> getLikeName(String s){
         return pr.findByNameContaining(s);
+    }
+    public List<Product> getLikeNameAndStatus(String s,ProductStatus ps){
+        return pr.findByNameContainingAndStatusid(s,ps);
     }
     
 }

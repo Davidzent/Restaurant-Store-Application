@@ -8,5 +8,5 @@ export interface IProduct {
   description?:string,
   seller?:IUser,
   statusid?:number|string,
-  typeid?:number|string
+  typeid?:string
 }

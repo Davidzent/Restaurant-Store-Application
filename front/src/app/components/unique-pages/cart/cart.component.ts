@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PurchaseService } from '../../../services/purchasee/purchase.service';
-import { IPurchase } from '../../../interfaces/Ipurchase'
+import { IPurchase } from 'src/app/interfaces/Ipurchase';
+
 
 @Component({
   selector: 'cart',
@@ -17,5 +18,5 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.purchaseService.getCartPurchases().subscribe((data) => this.purchases = data);
   }
-
+  
 }

@@ -87,7 +87,7 @@ export class ViewProductComponent implements OnInit {
   fname: 'Bob',
   lname: 'Burger',
   email: 'bburger@gmail.com',
-  roleid: 1
+  roleid: ""
 }
 
   @Input() input:IProduct = {
@@ -101,7 +101,7 @@ export class ViewProductComponent implements OnInit {
       email:""   //don't know if we should display this
     },
     statusid: 0,
-    typeid: 0
+    typeid: ""
   };
 
 
