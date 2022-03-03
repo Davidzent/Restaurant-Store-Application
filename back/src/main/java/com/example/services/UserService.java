@@ -36,34 +36,4 @@ public class UserService {
     public User update(User u) {
         return ur.save(u);
     }
-
-    // public Assignment getAssignmentById(int id){
-    //     return ar.getById(id);
-    // }
-
-    // public void turnInAssignment(Assignment a) throws AssignmentPastDueException {
-    //     long today = System.currentTimeMillis();
-    //     Date turnInDate = new Date(today);
-
-    //     //Check to see if it was turned in on time
-    //     if(turnInDate.compareTo(a.getDue()) > 0){
-    //         a.setPastDue(true);
-    //         a.setDone(true);
-    //         ar.save(a);
-    //         throw new AssignmentPastDueException();
-    //     }
-    //     a.setDone(true);
-    //     ar.save(a);
-    // }
-
-    // public Assignment gradeAssignment(double grade, Assignment a){
-    //     if(a.isPastDue()){
-    //         grade = grade * .8;
-    //         a.setGrade(grade);
-    //     } else {
-    //         a.setGrade(grade);
-    //     }
-
-    //     return ar.save(a);
-    // }
 }

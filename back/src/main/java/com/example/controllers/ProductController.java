@@ -8,8 +8,8 @@ import com.example.exeptions.NotASellerException;
 import com.example.exeptions.NotLoginException;
 import com.example.modules.Product;
 import com.example.modules.User;
+import com.example.modules.enums.ProductStatus;
 import com.example.services.ProductService;
-import com.example.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,7 +44,7 @@ public class ProductController {
     @ResponseBody
     public ResponseEntity<Object> create(@RequestBody Product p, HttpSession session){
         User u = isLogin(session);
-        if(u==null)return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        if(u==null)return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.I_AM_A_TEAPOT);
         if(isCustomer(u))return new ResponseEntity<>(new NotASellerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
         return new ResponseEntity<>(ps.create(p), HttpStatus.ACCEPTED);
     }
@@ -66,12 +66,16 @@ public class ProductController {
     }
 
     @GetMapping("/")
-    public List<Product> getAllProducts(){
+    public List<Product> getAllProducts(HttpSession session){
+        User u = isLogin(session);
+        if(u==null||isCustomer(u))return ps.getAllProductsByStatus(ProductStatus.Open);
         return ps.getAllProducts();
     }
 
     @GetMapping("/list/{name}")
-    public List<Product> getLikeName(@PathVariable("name")String name){
+    public List<Product> getLikeName(@PathVariable("name")String name,HttpSession session){
+        User u = isLogin(session);
+        if(u==null||isCustomer(u))return ps.getLikeNameAndStatus(name,ProductStatus.Open);
         return ps.getLikeName(name);
     }
     
