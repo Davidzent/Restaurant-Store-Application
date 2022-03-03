@@ -21,7 +21,7 @@ import static com.example.controllers.AuthController.*;
 
 @RestController
 @RequestMapping("/purchase")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("*")
 public class PurchaseController {
     
     private PurchaseService ps;
