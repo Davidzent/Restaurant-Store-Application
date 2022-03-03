@@ -13,6 +13,6 @@ export class ProductService {
 
   getProducts(): Observable<IProduct[]>{
     let url  = `${environment.url.base}/product/`
-    return this.http.get<IProduct[]>(url);
+    return this.http.get<IProduct[]>(url,environment.httpOptions);
   }
 }

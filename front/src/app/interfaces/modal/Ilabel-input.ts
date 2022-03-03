@@ -3,6 +3,5 @@ export interface IlabelInput {
   title:string,
   id?:string,
   value?:string,
-  options?:string,
   type:string
 }

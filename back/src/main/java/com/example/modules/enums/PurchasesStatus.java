@@ -5,5 +5,6 @@ public enum PurchasesStatus {
     Pending,
     Cancelled,
     Confirmed,
-    Delivered
+    Delivered,
+    Cart
 }

@@ -1,6 +1,3 @@
-
-
-
 <div class='modal-containerbp'>
   <div class='modalbp'>
     <header>
@@ -34,19 +31,16 @@
         {{ innerproduct.description }}
       </p>
 
-      <div *ngIf="isCustomer();then customer else seller"></div>
+      <div *ngIf="isCustomer(); then customer else seller"></div>
       <ng-template #customer>
-        <button class="purchase button">Purchase</button>
+        <button class="purchase button " (click)='generatePurchase()'>Purchase</button>
       </ng-template>
 
       <ng-template #seller>
+        
         <button class="purchase button">deactivate</button>
         <button class="purchase button">activate</button>
       </ng-template>
     </div>
   </div>
 </div>
-
-
-
-

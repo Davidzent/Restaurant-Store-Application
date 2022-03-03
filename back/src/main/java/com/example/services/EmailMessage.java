@@ -38,7 +38,6 @@ public class EmailMessage {
                return new PasswordAuthentication(from, pass);
             }
          });
-        System.out.print(session);
     }
 
 

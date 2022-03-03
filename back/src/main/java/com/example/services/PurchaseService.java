@@ -17,7 +17,7 @@ import com.example.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import static com.example.services.EmailMessage.sendmail;
+//import static com.example.services.EmailMessage.sendmail;
 
 @Service
 @Transactional
@@ -43,12 +43,12 @@ public class PurchaseService {
         p.setBuyer(ur.getById(p.getBuyer().getUser_id()));
         p.setProduct(proR.getById(p.getProduct().getProduct_id()));
         p.setPurchase(new Timestamp(System.currentTimeMillis()));
-        try {
-            sendmail(p);
-        } catch (MessagingException | IOException e) {
-            System.out.println("the email was not send");
-            System.out.println(e);
-        }
+        // try {
+        //     sendmail(p);
+        // } catch (MessagingException | IOException e) {
+        //     System.out.println("the email was not send");
+        //     System.out.println(e);
+        // }
         return pr.save(p);
     }
 
@@ -71,7 +71,12 @@ public class PurchaseService {
 
     public List<Purchase> getAllPurchasesByUser(int id) {
         User u = ur.getById(id);
-        return pr.findAllByBuyer(u);
+        return pr.findAllByBuyerAndStatusidNot(u,PurchasesStatus.Cart);
+    }
+
+    public List<Purchase> getAllCartItems(int user_id) {
+        User u = ur.getById(user_id);
+        return pr.findAllByBuyerAndStatusid(u,PurchasesStatus.Cart);
     }
     
 }

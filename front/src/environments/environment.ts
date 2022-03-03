@@ -11,6 +11,9 @@ export const environment = {
   Seller:{
     email:"RickAndMortyKrustyKrab@outlook.com",
     company:"Rick&Morty"
+  },
+  httpOptions:{
+    withCredentials: true
   }
 };
 

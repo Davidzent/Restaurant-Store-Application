@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit {
       email:""   //don't know if we should display this
     },
     statusid: 0,
-    typeid: 0
+    typeid: ""
   };
 
 }
