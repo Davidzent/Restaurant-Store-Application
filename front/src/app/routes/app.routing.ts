@@ -6,12 +6,14 @@ import { CartComponent } from "../components/unique-pages/cart/cart.component";
 import { ProductsComponent } from '../components/utils/customer/products-pages/products/products.component';
 import { PurchasesComponent } from '../components/utils/customer/purchases-pages/purchases/purchases.component';
 import { ViewProductComponent } from '../components/utils/customer/products-pages/view-product/view-product.component';
+import { ProductComponent } from '../components/utils/customer/products-pages/product/product.component';
 
 const appRoutes:Routes = [
   {path:'', redirectTo:'/home',pathMatch:'full'},
   {path:'home', component:HomeComponent},
   // {path:'login', component:HomeComponent},
   // {path:'register', component:HomeComponent},
+  {path:'product',component:ProductComponent},
   {path:'products',component:ProductsComponent},
   {path:'purchases',component:PurchasesComponent},
   {path:'cart', component:CartComponent},
