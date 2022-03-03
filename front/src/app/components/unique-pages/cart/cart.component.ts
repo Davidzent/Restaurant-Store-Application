@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PurchaseService } from '../../../services/purchasee/purchase.service';
+import { IPurchase } from '../../../interfaces/Ipurchase'
 
 @Component({
   selector: 'cart',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  purchases: IPurchase[];
+
+
+  constructor(private purchaseService: PurchaseService) { }
 
   ngOnInit() {
+    this.purchaseService.getCartPurchases().subscribe((data) => this.purchases = data);
   }
 
 }

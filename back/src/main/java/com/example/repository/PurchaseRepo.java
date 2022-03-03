@@ -14,7 +14,7 @@ public interface PurchaseRepo extends JpaRepository<Purchase, Integer> {
 
     List<Purchase> findAllByBuyer(User u);
 
-    Object findAllByBuyerAndStatusid(User u, PurchasesStatus cart);
+    List<Purchase> findAllByBuyerAndStatusid(User u, PurchasesStatus cart);
 
     List<Purchase> findAllByBuyerAndStatusidNot(User u, PurchasesStatus cart);
     
