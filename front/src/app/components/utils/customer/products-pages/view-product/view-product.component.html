@@ -6,20 +6,10 @@
         {{ innerproduct.name }}
       </h1>
 
-      <div class='sellerinfo'>
-        <h2>
-          Seller: {{ innerproduct.seller?.fname }} {{ innerproduct.seller?.lname }}
-
-        </h2>
-        <h3>
-          email: {{ innerproduct.seller?.email }}
-        </h3>
-      </div>
-
     </header>
-
+    <img class='foodimage' src='{{ innerproduct | getImg }}' *ngIf = 'image' alt ="your image"/>
     <div class='info'>
-      <img class='foodimage' src='{{image}}' *ngIf = 'image' alt ="your image"/>
+     
 
       <hr>
 
@@ -33,13 +23,13 @@
 
       <div *ngIf="isCustomer(); then customer else seller"></div>
       <ng-template #customer>
-        <button class="purchase button " (click)='generatePurchase()'>Purchase</button>
+        <button class="exitbutton" (click)='generatePurchase()'>Purchase</button>
       </ng-template>
 
       <ng-template #seller>
         
-        <button class="purchase button">deactivate</button>
-        <button class="purchase button">activate</button>
+        <button class="exitbutton" (click)='deactivateProduct()'>deactivate</button>
+        <button class="exitbutton" (click)='activateProduct()'>activate</button>
       </ng-template>
     </div>
   </div>
