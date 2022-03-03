@@ -33,13 +33,13 @@ export class ViewPurchaseComponent implements OnInit {
         lname:"",
         email:""     //don't know if we should display this
       },
-      statusid: 0,
-      typeid: 0
+      statusid: "",
+      typeid: ""
     },
     address:"",
     purchase: 0,
     delivery: 0,
-    statusid: 0
+    statusid: ""
   };
 
 

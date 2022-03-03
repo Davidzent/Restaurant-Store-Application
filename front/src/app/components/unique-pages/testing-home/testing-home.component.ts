@@ -20,7 +20,7 @@ export class TestingHomeComponent implements OnInit {
     return this.user?this.user.user_id?true:false:false;
   }
   isCustomer():boolean{
-    return this.isLogin()?this.user.roleid==1?true:false:false;
+    return this.isLogin()?this.user.roleid=="Customer"?true:false:false;
   }
 
 }

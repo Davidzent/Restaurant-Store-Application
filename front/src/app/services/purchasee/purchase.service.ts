@@ -15,20 +15,25 @@ export class PurchaseService {
 
   constructor(private http:HttpClient) { }
 
-  getPurchases(): void{
+  // getPurchases(): void{
+  //   let url:string=`${environment.url.base}/purchase/`;
+  //   this.http.get<IPurchase[]>(url,environment.httpOptions)
+  //     .pipe(
+  //       catchError((e) => {
+  //         debugger;
+  //         console.log(e);
+  //         return throwError(e);
+  //       })
+  //     ).subscribe((data) => {
+  //       console.log(data);
+  //       this.purchases=data;
+  //       this.subject.next(this.purchases);
+  //     });
+  // }
+
+  getPurchases(): Observable<IPurchase[]>{
     let url:string=`${environment.url.base}/purchase/`;
-    this.http.get<IPurchase[]>(url,environment.httpOptions)
-      .pipe(
-        catchError((e) => {
-          debugger;
-          console.log(e);
-          return throwError(e);
-        })
-      ).subscribe((data) => {
-        console.log(data);
-        this.purchases=data;
-        this.subject.next(this.purchases);
-      });
+    return this.http.get<IPurchase[]>(url,environment.httpOptions)
   }
 
   createPurchase(IProduct): void{
@@ -50,7 +55,7 @@ export class PurchaseService {
       product:undefined,   //product
       address:"",
       purchase:0,
-      statusid:0
+      statusid:""
     }
     let url:string=`${environment.url.base}/purchase/cancel`;
     this.http.put<IPurchase>(url,purchase,environment.httpOptions)
@@ -72,7 +77,7 @@ export class PurchaseService {
       product:undefined,   //product
       address:"",
       purchase:0,
-      statusid:0
+      statusid:""
     }
     let url:string=`${environment.url.base}/purchase/confirm`;
     this.http.put<IPurchase>(url,purchase,environment.httpOptions)
@@ -95,7 +100,7 @@ export class PurchaseService {
       product:undefined,   //product
       address:"",
       purchase:0,
-      statusid:0
+      statusid:""
     }
     let url:string=`${environment.url.base}/purchase/delivery`;
     this.http.put<IPurchase>(url,purchase,environment.httpOptions)

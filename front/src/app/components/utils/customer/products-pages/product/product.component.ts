@@ -27,13 +27,13 @@ export class ProductComponent implements OnInit {
       email:""   //don't know if we should display this
     },
     name: '',
-    statusid: 0,
-    typeid: 0
+    statusid: "",
+    typeid: ""
 } */
 
  /*    Product: IProduct = this.product; */
 
-  @Input() input:IProduct = {
+  @Input() Product:IProduct = {
     product_id: 0,
     price: 0,
     description: '',
@@ -77,25 +77,25 @@ export class ProductComponent implements OnInit {
 
   getimgInfo() {
       /* console.log(this.product.typeid); */
-      console.log(this.input.typeid);
+      console.log(this.Product.typeid);
       /* if (this.product.typeid.toLocaleString().toLowerCase == 'lunch'){ */
-    if (this.input.typeid.toLowerCase == 'hambur'){
+    if (this.Product.typeid.toLowerCase() == 'hambur'){
         this.category = 'burger';
 
     }
 
     /* if (this.product.typeid.toLocaleString().toLowerCase == 'dinner'){ */
-    if (this.input.typeid.toLowerCase == 'pasta'){
+    if (this.Product.typeid.toLowerCase() == 'pasta'){
       this.category = 'pasta';
   }
 
   /* if (this.product.typeid.toLocaleString().toLowerCase == 'breakfast'){ */
-  if (this.input.typeid.toLowerCase == 'pizza'){
+  if (this.Product.typeid.toLowerCase() == 'pizza'){
     this.category = 'pizza';
   }
 
   /* this.imgNum = this.product.product_id.toLocaleString(); */
-  this.imgNum = this.input.product_id.toLocaleString();
+  this.imgNum = this.Product.product_id.toLocaleString();
 
   }
 

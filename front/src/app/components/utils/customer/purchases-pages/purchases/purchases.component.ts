@@ -9,7 +9,7 @@ import { PurchaseService } from 'src/app/services/purchasee/purchase.service';
   styleUrls: ['./purchases.component.css']
 })
 export class PurchasesComponent implements OnInit {
-
+  // purchases:IPurchase[] = [];
   purchases:Observable<IPurchase[]> = new Observable<IPurchase[]>();
 
   input:IPurchase = {
@@ -24,19 +24,21 @@ export class PurchasesComponent implements OnInit {
         lname:"",
         email:""      //don't know if we should display this
       },
-      statusid: 0,
-      typeid: 0
+      statusid: "",
+      typeid: ""
     },
     address:"",
     purchase: 0,
     delivery: 0,
-    statusid: 0
+    statusid: ""
   };
 
   constructor(private purchaseService:PurchaseService) { }
 
   ngOnInit() {
-    this.purchaseService.getPurchases();
+    // this.purchaseService.getPurchases().subscribe((data) =>{
+    //   this.purchases = data;
+    // });
     this.purchases = this.purchaseService.subject;
   }
 

@@ -10,7 +10,8 @@ import { AppComponent } from './app.component';
 
 //unique library
 import { HomeComponent } from './components/unique-pages/home/home.component';
-import { CartComponent } from './components/unique-pages/cart/cart.component';
+import { CartMainComponent } from './components/unique-pages/cart/cart-main/cart-main.component';
+import { CartDetailComponent } from './components/unique-pages/cart/cart-detail/cart-detail.component';
 import { FoodMenuComponent } from './components/unique-pages/food-menu/menu.component';
 
 //general library
@@ -31,7 +32,7 @@ import { LabelHiddenInputComponent } from './components/utils/general/modal/labe
 import { ProductComponent } from './components/utils/customer/products-pages/product/product.component';
 import { ProductsComponent } from './components/utils/customer/products-pages/products/products.component';
 import { NewProductComponent } from './components/utils/customer/products-pages/new-product/new-product.component';
-//import { ViewProductComponent } from './components/utils/customer/products-pages/view-product/view-product.component';
+import { ViewProductComponent } from './components/utils/customer/products-pages/view-product/view-product.component';
 
 // //utils purchases
 import { PurchaseComponent } from './components/utils/customer/purchases-pages/purchase/purchase.component';
@@ -69,14 +70,15 @@ import { GetImgPipe } from './pipes/get-img/get-img.pipe';
 
     //unique
     HomeComponent,
-    CartComponent,
+    CartMainComponent,
+    CartDetailComponent,
     FoodMenuComponent,
 
     //products
     ProductComponent,
     ProductsComponent,
     NewProductComponent,
-    //ViewProductComponent,
+    ViewProductComponent,
     routingComponents,
 
     //purchases
