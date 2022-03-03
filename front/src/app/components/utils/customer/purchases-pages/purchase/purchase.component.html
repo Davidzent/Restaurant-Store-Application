@@ -9,11 +9,11 @@
         <p class="card-text">{{input.product.name}}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+            <button type="button" (click) = "onSelected()" class="btn btn-sm btn-outline-secondary">View</button>
+              <button id="view-id" class="btn" type="submit" (click)="onSelected()">Viewish</button>
           </div>
           <small class="text-muted">Total:</small>
           <small class="text-muted">${{input.product.price}}</small>
-                    <div class="d-flex justify-content-between total font-weight-bold mt-4"><span>Total</span><span>$7,197.00</span></div>
       </div>
     </div>
   </div>
