@@ -19,7 +19,7 @@ export class CartMainComponent implements OnInit {
   display:boolean= false;
 
   ngOnInit() {
-    this.purchasesService.getPurchases().subscribe((data) =>{
+    this.purchasesService.getCartPurchases().subscribe((data) =>{
       this.purchases = data;
       if(this.purchases){
         this.display = true;

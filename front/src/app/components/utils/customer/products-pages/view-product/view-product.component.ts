@@ -76,6 +76,7 @@ export class ViewProductComponent implements OnInit {
 
   generatePurchase(){
     this.purchaseService.createPurchase(this.innerproduct);
+    this.closeWindow();
   }
 
 
@@ -102,7 +103,4 @@ export class ViewProductComponent implements OnInit {
     statusid: "",
     typeid: ""
   };
-
-
-
 }

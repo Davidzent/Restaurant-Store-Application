@@ -36,17 +36,22 @@ export class PurchaseService {
     return this.http.get<IPurchase[]>(url,environment.httpOptions)
   }
 
-  createPurchase(IProduct): void{
+  createPurchase(prod: IProduct): void{
     let url:string=`${environment.url.base}/purchase/create`;
     const body = {   
       product:{
-          product_id:2
+          product_id: prod.product_id
       },
-      address:"This is my address.",
-      statusid:"Pending"
+      address:"address.",
+      statusid:"Cart"
     };
 
     this.http.post<any>(url, body, environment.httpOptions).subscribe((data) => {console.log(data)});
+  }
+
+  getCartPurchases(): Observable<IPurchase[]> {
+    let url:string=`${environment.url.base}/purchase/cart/user` 
+    return this.http.get<IPurchase[]>(url, environment.httpOptions);
   }
 
   declinePurchase(purchase_id):void{

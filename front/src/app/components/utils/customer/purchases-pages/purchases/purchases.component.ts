@@ -9,8 +9,8 @@ import { PurchaseService } from 'src/app/services/purchasee/purchase.service';
   styleUrls: ['./purchases.component.css']
 })
 export class PurchasesComponent implements OnInit {
-  // purchases:IPurchase[] = [];
-  purchases:Observable<IPurchase[]> = new Observable<IPurchase[]>();
+  purchases:IPurchase[] = [];
+  // purchases:Observable<IPurchase[]> = new Observable<IPurchase[]>();
 
   input:IPurchase = {
     purchase_id: 0,
@@ -36,10 +36,10 @@ export class PurchasesComponent implements OnInit {
   constructor(private purchaseService:PurchaseService) { }
 
   ngOnInit() {
-    // this.purchaseService.getPurchases().subscribe((data) =>{
-    //   this.purchases = data;
-    // });
-    this.purchases = this.purchaseService.subject;
+    this.purchaseService.getPurchases().subscribe((data) =>{
+      this.purchases = data;
+    });
+    // this.purchases = this.purchaseService.subject;
   }
 
   // getPokemon(name: string){

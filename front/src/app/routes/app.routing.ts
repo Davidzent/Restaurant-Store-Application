@@ -19,6 +19,7 @@ const appRoutes:Routes = [
   {path:'cart', component:CartMainComponent},
   {path: 'viewproduct', component: ViewProductComponent}
 
+
 ];
 
 @NgModule({

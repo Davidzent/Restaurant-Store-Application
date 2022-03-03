@@ -10,8 +10,7 @@
   <div class="album py-5 bg-light">
     <div class="container">
 
-      <purchase *ngFor="let purchase of (purchases|async)" [input]="purchase"></purchase>
-
+      <purchase *ngFor="let purchase of purchases" [input]="purchase"></purchase>
 
     </div>
 

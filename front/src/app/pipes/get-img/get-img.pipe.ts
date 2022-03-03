@@ -9,20 +9,9 @@ export class GetImgPipe implements PipeTransform {
   imgNum: string;
 
   transform(value: IProduct, ...args: unknown[]): string {
-    if (value.typeid.toLocaleString() == 'Lunch'){
-      this.category = 'burger';
-      
-  }
+    this.category = value.typeid.toLowerCase();
 
-  if (value.typeid.toLocaleString() == 'Dinner'){
-    this.category = 'pasta';
-}
-
-if (value.typeid.toLocaleString() == 'Breakfast'){
-  this.category = 'pizza';
-}
-
-this.imgNum = value.product_id.toLocaleString();
+    this.imgNum = (value.product_id%81).toLocaleString();
 
     return `https://foodish-api.herokuapp.com/images/${this.category}/${this.category}${this.imgNum}.jpg`;
   }
