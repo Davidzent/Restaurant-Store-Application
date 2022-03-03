@@ -9,16 +9,16 @@ export class GetImgPipe implements PipeTransform {
   imgNum: string;
 
   transform(value: IProduct, ...args: unknown[]): string {
-    if (value.typeid.toLocaleString() == 'Lunch'){
+    if (value.typeid.toLocaleString() == 'Hambur'){
       this.category = 'burger';
       
   }
 
-  if (value.typeid.toLocaleString() == 'Dinner'){
+  if (value.typeid.toLocaleString() == 'pasta'){
     this.category = 'pasta';
 }
 
-if (value.typeid.toLocaleString() == 'Breakfast'){
+if (value.typeid.toLocaleString() == 'pizza'){
   this.category = 'pizza';
 }
 
