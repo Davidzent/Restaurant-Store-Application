@@ -16,7 +16,7 @@ import static com.example.controllers.AuthController.*;
 
 @RestController
 @RequestMapping(value="/user")
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 public class UserController {
     private UserService us;    
 
