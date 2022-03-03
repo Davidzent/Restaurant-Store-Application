@@ -55,7 +55,12 @@ public class EmailMessage {
         msg.setSentDate(new Date());
      
         MimeBodyPart messageBodyPart = new MimeBodyPart();
-        String message="Purchase status: "+p.getStatusid()+"\nName: "+p.getBuyer().getFname()+" "+p.getBuyer().getLname();
+        String message="Purchase status: "+p.getStatusid()+
+        "\nName: "+p.getBuyer().getFname()+" "+p.getBuyer().getLname()+
+        "\nProduct: "+p.getProduct().getName()+
+        "\nPrice: "+p.getProduct().getPrice()+
+        "\nStatus: "+p.getStatusid()+
+        "\nPurchase Date: "+p.getPurchase();
         messageBodyPart.setContent(message, "text/html");
      
         Multipart multipart = new MimeMultipart();
