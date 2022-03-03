@@ -52,16 +52,6 @@ public class PurchaseService {
         return pr.save(p);
     }
 
-    public Purchase cancel(int purchase_id) {
-        Purchase p = pr.getById(purchase_id);
-        p.setStatusid(PurchasesStatus.Cancelled);
-        return pr.save(p);
-    }
-    public Purchase confirm(int purchase_id) {
-        Purchase p = pr.getById(purchase_id);
-        p.setStatusid(PurchasesStatus.Confirmed);
-        return pr.save(p);
-    }
     public Purchase delivery(int purchase_id) {
         Purchase p = pr.getById(purchase_id);
         p.setStatusid(PurchasesStatus.Delivered);
@@ -77,6 +67,12 @@ public class PurchaseService {
     public List<Purchase> getAllCartItems(int user_id) {
         User u = ur.getById(user_id);
         return pr.findAllByBuyerAndStatusid(u,PurchasesStatus.Cart);
+    }
+
+    public Purchase setStatus(int purchase_id, PurchasesStatus status) {
+        Purchase p = pr.getById(purchase_id);
+        p.setStatusid(status);
+        return pr.save(p);
     }
     
 }

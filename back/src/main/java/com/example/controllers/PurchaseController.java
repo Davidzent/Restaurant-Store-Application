@@ -9,6 +9,7 @@ import com.example.exeptions.NotASellerException;
 import com.example.exeptions.NotLoginException;
 import com.example.modules.Purchase;
 import com.example.modules.User;
+import com.example.modules.enums.PurchasesStatus;
 import com.example.services.PurchaseService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,13 +64,22 @@ public class PurchaseController {
         return new ResponseEntity<>(ps.create(p), HttpStatus.ACCEPTED);
     }
 
+    @PutMapping("/pending")
+    @ResponseBody
+    public ResponseEntity<Object> pending(@RequestBody Purchase p, HttpSession session){
+        User u = isLogin(session);
+        if(u==null)return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        if(!isCustomer(u))return new ResponseEntity<>(new NotACustomerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        return new ResponseEntity<>(ps.setStatus(p.getPurchase_id(),PurchasesStatus.Pending), HttpStatus.ACCEPTED);
+    }
+
     @PutMapping("/cancel")
     @ResponseBody
     public ResponseEntity<Object> cancel(@RequestBody Purchase p, HttpSession session){
         User u = isLogin(session);
         if(u==null)return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
         if(isCustomer(u))return new ResponseEntity<>(new NotASellerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
-        return new ResponseEntity<>(ps.cancel(p.getPurchase_id()), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(ps.setStatus(p.getPurchase_id(),PurchasesStatus.Cancelled), HttpStatus.ACCEPTED);
     }
     @PutMapping("/confirm")
     @ResponseBody
@@ -77,7 +87,7 @@ public class PurchaseController {
         User u = isLogin(session);
         if(u==null)return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
         if(isCustomer(u))return new ResponseEntity<>(new NotASellerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
-        return new ResponseEntity<>(ps.confirm(p.getPurchase_id()), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(ps.setStatus(p.getPurchase_id(),PurchasesStatus.Confirmed), HttpStatus.ACCEPTED);
     }
     @PutMapping("/delivery")
     @ResponseBody
