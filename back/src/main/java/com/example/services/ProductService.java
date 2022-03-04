@@ -20,16 +20,17 @@ public class ProductService {
     private ProductRepo pr;
     private UserRepo ur;
 
-    public ProductService(){}
+    public ProductService() {
+    }
 
     @Autowired
-    public ProductService(ProductRepo pr,UserRepo ur) {
+    public ProductService(ProductRepo pr, UserRepo ur) {
         this.pr = pr;
         this.ur = ur;
     }
 
     public Product create(Product p) {
-        
+
         p.setProduct_id(0);
         p.setSeller(ur.getById(1));
         return pr.save(p);
@@ -50,19 +51,21 @@ public class ProductService {
     public List<Product> getAllProducts() {
         return pr.findAll();
     }
+
     public List<Product> getAllProductsByStatus(ProductStatus s) {
         return pr.findAllByStatusid(s);
     }
 
-    public List<Product> getSellerProducts(User p){
+    public List<Product> getSellerProducts(User p) {
         return pr.findAllBySeller(p);
     }
 
-    public List<Product> getLikeName(String s){
+    public List<Product> getLikeName(String s) {
         return pr.findByNameContaining(s);
     }
-    public List<Product> getLikeNameAndStatus(String s,ProductStatus ps){
-        return pr.findByNameContainingAndStatusid(s,ps);
+
+    public List<Product> getLikeNameAndStatus(String s, ProductStatus ps) {
+        return pr.findByNameContainingAndStatusid(s, ps);
     }
-    
+
 }

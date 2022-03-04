@@ -33,51 +33,59 @@ public class ProductController {
 
     private ProductService ps;
 
-    public ProductController(){}
+    public ProductController() {
+    }
 
     @Autowired
-    public ProductController(ProductService ps){
+    public ProductController(ProductService ps) {
         this.ps = ps;
     }
 
     @PostMapping("/create")
     @ResponseBody
-    public ResponseEntity<Object> create(@RequestBody Product p, HttpSession session){
+    public ResponseEntity<Object> create(@RequestBody Product p, HttpSession session) {
         User u = isLogin(session);
-        if(u==null)return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.I_AM_A_TEAPOT);
-        if(isCustomer(u))return new ResponseEntity<>(new NotASellerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        if (u == null)
+            return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.I_AM_A_TEAPOT);
+        if (isCustomer(u))
+            return new ResponseEntity<>(new NotASellerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
         return new ResponseEntity<>(ps.create(p), HttpStatus.ACCEPTED);
     }
-    
+
     @PutMapping("/deactivate")
-    public ResponseEntity<Object> deactivate(@RequestBody Product p, HttpSession session){
+    public ResponseEntity<Object> deactivate(@RequestBody Product p, HttpSession session) {
         User u = isLogin(session);
-        if(u==null)return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
-        if(isCustomer(u))return new ResponseEntity<>(new NotASellerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        if (u == null)
+            return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        if (isCustomer(u))
+            return new ResponseEntity<>(new NotASellerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
         return new ResponseEntity<>(ps.deactivate(p.getProduct_id()), HttpStatus.ACCEPTED);
     }
-    
+
     @PutMapping("/activate")
-    public ResponseEntity<Object> activate(@RequestBody Product p, HttpSession session){
+    public ResponseEntity<Object> activate(@RequestBody Product p, HttpSession session) {
         User u = isLogin(session);
-        if(u==null)return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
-        if(isCustomer(u))return new ResponseEntity<>(new NotASellerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        if (u == null)
+            return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
+        if (isCustomer(u))
+            return new ResponseEntity<>(new NotASellerException().getMessage(), HttpStatus.EXPECTATION_FAILED);
         return new ResponseEntity<>(ps.activate(p.getProduct_id()), HttpStatus.ACCEPTED);
     }
 
     @GetMapping("/")
-    public List<Product> getAllProducts(HttpSession session){
+    public List<Product> getAllProducts(HttpSession session) {
         User u = isLogin(session);
-        if(u==null||isCustomer(u))return ps.getAllProductsByStatus(ProductStatus.Open);
+        if (u == null || isCustomer(u))
+            return ps.getAllProductsByStatus(ProductStatus.Open);
         return ps.getAllProducts();
     }
 
     @GetMapping("/list/{name}")
-    public List<Product> getLikeName(@PathVariable("name")String name,HttpSession session){
+    public List<Product> getLikeName(@PathVariable("name") String name, HttpSession session) {
         User u = isLogin(session);
-        if(u==null||isCustomer(u))return ps.getLikeNameAndStatus(name,ProductStatus.Open);
+        if (u == null || isCustomer(u))
+            return ps.getLikeNameAndStatus(name, ProductStatus.Open);
         return ps.getLikeName(name);
     }
-    
 
 }

@@ -52,7 +52,6 @@ import { AppRoutingModule, routingComponents } from './routes/app.routing';
 //testing this component is going to be removed before the presentation do not add anything important
 import { TestingHomeComponent } from './components/unique-pages/testing-home/testing-home.component';
 import { TempProductComponent } from './components/utils/customer/products-pages/temp-product/temp-product.component';
-import {PurchasePagesComponent} from "./components/utils/customer/purchases-pages/purchase-pages.component";
 import { GetImgPipe } from './pipes/get-img/get-img.pipe';
 
 
@@ -60,6 +59,9 @@ import { GetImgPipe } from './pipes/get-img/get-img.pipe';
   declarations: [
     //main
     AppComponent,
+    
+    //router
+    routingComponents,
 
     //general
     NavbarComponent,
@@ -79,14 +81,12 @@ import { GetImgPipe } from './pipes/get-img/get-img.pipe';
     ProductsComponent,
     NewProductComponent,
     ViewProductComponent,
-    routingComponents,
 
     //purchases
     PurchaseComponent,
     PurchasesComponent,
     NewPurchaseComponent,
     ViewPurchaseComponent,
-    PurchasePagesComponent,
 
     //modal
     ModalComponent,

@@ -32,7 +32,7 @@ export class PurchaseService {
   // }
 
   getPurchases(): Observable<IPurchase[]>{
-    let url:string=`${environment.url.base}/purchase/`;
+    let url:string=`${environment.url.base}/purchase/list/user`;
     return this.http.get<IPurchase[]>(url,environment.httpOptions)
   }
 

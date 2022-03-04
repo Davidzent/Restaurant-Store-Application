@@ -63,7 +63,7 @@
         <p class="price">Address: </p>
         <P>{{input.address}}</P>
       </div>
-      <div id="buttons">
+      <div id="buttons" *ngIf="isSeller()">
         <button (click)= "approvePurchase(input.purchase_id)" class="btn" type="submit">Accept</button>
         <button (click) = "declinePurchase(input.purchase_id)" class="btn" type="submit">Decline</button>
         <button (click) = "deliveryPurchase(input.purchase_id)"class="btn btn-success" type="submit">Delivery</button>

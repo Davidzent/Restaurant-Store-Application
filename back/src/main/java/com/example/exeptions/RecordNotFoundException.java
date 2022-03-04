@@ -1,2 +1,4 @@
-package com.example.exeptions;public class RecordNotFoundException {
+package com.example.exeptions;
+
+public class RecordNotFoundException {
 }

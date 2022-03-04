@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   url: {
-    base: 'http://35.193.86.50:7000',
+    base: 'http://localhost:7000',
     imagrs: ''
   },
   Seller:{
