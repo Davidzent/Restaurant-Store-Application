@@ -21,7 +21,7 @@ export class CartMainComponent implements OnInit {
   ngOnInit() {
     this.purchasesService.getCartPurchases().subscribe((data) =>{
       this.purchases = data;
-      if(this.purchases.length<1){
+      if(this.purchases.length>0){
         this.display = true;
         for(let purchase of this.purchases){
           this.totalPrice += purchase.product.price;
