@@ -27,6 +27,8 @@ dependencies {
     implementation 'org.postgresql:postgresql:42.3.1'
 	// https://mvnrepository.com/artifact/com.sun.mail/javax.mail
 	implementation 'com.sun.mail:javax.mail:1.6.2'
+	// Use JUnit test framework.
+	testImplementation 'junit:junit:4.13.2'
 }
 jar {
     duplicatesStrategy = 'include'
