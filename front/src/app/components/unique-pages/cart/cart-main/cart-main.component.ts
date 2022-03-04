@@ -3,7 +3,7 @@ import { IPurchase } from 'src/app/interfaces/Ipurchase';
 import { PurchaseService } from 'src/app/services/purchasee/purchase.service';
 
 @Component({
-  selector: 'cart',
+  selector: 'cart-main',
   templateUrl: './cart-main.component.html',
   styleUrls: ['./cart-main.component.css']
 })
@@ -21,7 +21,8 @@ export class CartMainComponent implements OnInit {
   ngOnInit() {
     this.purchasesService.getCartPurchases().subscribe((data) =>{
       this.purchases = data;
-      if(this.purchases){
+      console.log("this.purchases" , this.purchases);
+      if(this.purchases == []){
         this.display = true;
         for(let purchase of this.purchases){
           this.totalPrice += purchase.product.price;
@@ -36,5 +37,9 @@ export class CartMainComponent implements OnInit {
       }
     });
 
+  }
+
+  buy(){
+    this.purchasesService.buy(this.purchases);
   }
 }

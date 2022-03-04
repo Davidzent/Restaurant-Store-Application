@@ -17,29 +17,29 @@ import com.example.modules.enums.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class User {
     @Id
-    @Column(name="user_id")
+    @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int user_id;
 
-    @Column(name="username",nullable = false,unique = true)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @Column(name="password",nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name="fname",nullable = false)
+    @Column(name = "fname", nullable = false)
     private String fname;
 
-    @Column(name="lname",nullable = false)
+    @Column(name = "lname", nullable = false)
     private String lname;
 
-    @Column(name="email",nullable = false,unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name="roleid",nullable = false)
+    @Column(name = "roleid", nullable = false)
     private UserRole roleid;
 
     @OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL)
@@ -50,9 +50,8 @@ public class User {
     @JsonIgnore
     private List<Product> products = new ArrayList<>();
 
-
-        
-    public User() {}
+    public User() {
+    }
 
     public User(int user_id, String username, String password, String fname, String lname, String email,
             UserRole roleid, List<Purchase> purchases, List<Product> products) {

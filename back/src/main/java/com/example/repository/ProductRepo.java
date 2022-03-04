@@ -12,9 +12,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductRepo extends JpaRepository<Product, Integer> {
     List<Product> findAllBySeller(User p);
-    List<Product> findByNameContaining(String s);
-    List<Product> findAllByStatusid(ProductStatus open);
-    List<Product> findByNameContainingAndStatusid(String s, ProductStatus open);
-    
-}
 
+    List<Product> findByNameContaining(String s);
+
+    List<Product> findAllByStatusid(ProductStatus open);
+
+    List<Product> findByNameContainingAndStatusid(String s, ProductStatus open);
+
+}

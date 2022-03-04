@@ -32,13 +32,13 @@ export class PurchaseService {
   // }
 
   getPurchases(): Observable<IPurchase[]>{
-    let url:string=`${environment.url.base}/purchase/`;
+    let url:string=`${environment.url.base}/purchase/list/user`;
     return this.http.get<IPurchase[]>(url,environment.httpOptions)
   }
 
   createPurchase(prod: IProduct): void{
     let url:string=`${environment.url.base}/purchase/create`;
-    const body = {   
+    const body = {
       product:{
           product_id: prod.product_id
       },
@@ -50,7 +50,7 @@ export class PurchaseService {
   }
 
   getCartPurchases(): Observable<IPurchase[]> {
-    let url:string=`${environment.url.base}/purchase/cart/user` 
+    let url:string=`${environment.url.base}/purchase/cart/user`
     return this.http.get<IPurchase[]>(url, environment.httpOptions);
   }
 
@@ -120,5 +120,23 @@ export class PurchaseService {
         }
 
       )
+  }
+
+  buy(purchases):void {
+    for (let purchase of purchases) {
+
+      let url: string = `${environment.url.base}/purchase/pending`;
+      this.http.put<IPurchase>(url, purchase, environment.httpOptions)
+        .pipe(
+          catchError((e) => {
+            console.log(e);
+            return throwError(e)
+          })
+        )
+        .subscribe((data) => {
+            console.log(data);
+          }
+        )
+    }
   }
 }

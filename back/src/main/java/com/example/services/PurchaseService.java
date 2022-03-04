@@ -17,7 +17,7 @@ import com.example.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//import static com.example.services.EmailMessage.sendmail;
+import static com.example.services.EmailMessage.sendmail;
 
 @Service
 @Transactional
@@ -26,10 +26,11 @@ public class PurchaseService {
     private UserRepo ur;
     private ProductRepo proR;
 
-    public PurchaseService(){}
+    public PurchaseService() {
+    }
 
     @Autowired
-    public PurchaseService(PurchaseRepo pr,UserRepo ur,ProductRepo proR) {
+    public PurchaseService(PurchaseRepo pr, UserRepo ur, ProductRepo proR) {
         this.pr = pr;
         this.ur = ur;
         this.proR = proR;
@@ -43,25 +44,16 @@ public class PurchaseService {
         p.setBuyer(ur.getById(p.getBuyer().getUser_id()));
         p.setProduct(proR.getById(p.getProduct().getProduct_id()));
         p.setPurchase(new Timestamp(System.currentTimeMillis()));
-        // try {
-        //     sendmail(p);
-        // } catch (MessagingException | IOException e) {
-        //     System.out.println("the email was not send");
-        //     System.out.println(e);
-        // }
-        return pr.save(p);
+        p = pr.save(p);
+        try {
+            sendmail(p);
+        } catch (MessagingException | IOException e) {
+            System.out.println("the email was not send");
+            System.out.println(e);
+        }
+        return p;
     }
 
-    public Purchase cancel(int purchase_id) {
-        Purchase p = pr.getById(purchase_id);
-        p.setStatusid(PurchasesStatus.Cancelled);
-        return pr.save(p);
-    }
-    public Purchase confirm(int purchase_id) {
-        Purchase p = pr.getById(purchase_id);
-        p.setStatusid(PurchasesStatus.Confirmed);
-        return pr.save(p);
-    }
     public Purchase delivery(int purchase_id) {
         Purchase p = pr.getById(purchase_id);
         p.setStatusid(PurchasesStatus.Delivered);
@@ -71,12 +63,18 @@ public class PurchaseService {
 
     public List<Purchase> getAllPurchasesByUser(int id) {
         User u = ur.getById(id);
-        return pr.findAllByBuyerAndStatusidNot(u,PurchasesStatus.Cart);
+        return pr.findAllByBuyerAndStatusidNot(u, PurchasesStatus.Cart);
     }
 
     public List<Purchase> getAllCartItems(int user_id) {
         User u = ur.getById(user_id);
-        return pr.findAllByBuyerAndStatusid(u,PurchasesStatus.Cart);
+        return pr.findAllByBuyerAndStatusid(u, PurchasesStatus.Cart);
     }
-    
+
+    public Purchase setStatus(int purchase_id, PurchasesStatus status) {
+        Purchase p = pr.getById(purchase_id);
+        p.setStatusid(status);
+        return pr.save(p);
+    }
+
 }

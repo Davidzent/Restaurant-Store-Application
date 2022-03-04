@@ -6,7 +6,6 @@
     </div>
     <div>
       <ul>
-        <li><a (click)="checksession()"> check</a></li>
         <div *ngIf="isLogin();then user else guest"></div>
         <ng-template #user>
           <li><my-profile></my-profile></li>

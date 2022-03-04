@@ -14,7 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 public class AddResponseHeaderFilter implements Filter {
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
         httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");
         chain.doFilter(request, response);

@@ -16,31 +16,31 @@ import com.example.modules.enums.ProductType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="product")
+@Table(name = "product")
 public class Product {
     @Id
-    @Column(name="purchase_id")
+    @Column(name = "purchase_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int product_id;
 
-    @Column(name="name",nullable = false)
+    @Column(name = "name", nullable = false)
     String name;
 
-    @Column(name="price",nullable = false)
+    @Column(name = "price", nullable = false)
     double price;
-    
-    @Column(name="description",nullable = false)
+
+    @Column(name = "description", nullable = false)
     String description;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name="seller",nullable = false)
+    @JoinColumn(name = "seller", nullable = false)
     @JsonIgnore
     User seller;
-    
-    @Column(name="statusid",nullable = false)
+
+    @Column(name = "statusid", nullable = false)
     ProductStatus statusid;
 
-    @Column(name="typeid")
+    @Column(name = "typeid")
     ProductType typeid;
 
     public Product() {

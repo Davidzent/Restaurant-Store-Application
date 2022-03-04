@@ -33,5 +33,12 @@ export class ProductService {
     };
 
     this.http.put<any>(url, body, environment.httpOptions).subscribe((data) => {console.log(data)});
+    
+  createProduct(product:IProduct):void{
+    let url = `${environment.url.base}/product/create`;
+    this.http.post<IProduct>(url,product,environment.httpOptions).subscribe((data)=>{
+      console.log(data);
+    });
+
   }
 }

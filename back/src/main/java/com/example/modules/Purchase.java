@@ -16,38 +16,38 @@ import javax.persistence.Table;
 import com.example.modules.enums.PurchasesStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
-@Table(name="purchase")
+@Table(name = "purchase")
 public class Purchase {
 
     @Id
-    @Column(name="purchase_id")
+    @Column(name = "purchase_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int purchase_id;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name="product",nullable = false)
+    @JoinColumn(name = "product", nullable = false)
     Product product;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name="buyer",nullable = false)
+    @JoinColumn(name = "buyer", nullable = false)
     @JsonIgnore
     User buyer;
 
-    @Column(name="address",nullable = false)
+    @Column(name = "address", nullable = false)
     String address;
 
-    @Column(name="purchase",nullable = false)
+    @Column(name = "purchase", nullable = false)
     Timestamp purchase;
 
-    @Column(name="delivery")
+    @Column(name = "delivery")
     Timestamp delivery;
 
-    @Column(name="statusid",nullable = false)
+    @Column(name = "statusid", nullable = false)
     PurchasesStatus statusid;
 
-    public Purchase() {}
+    public Purchase() {
+    }
 
     public Purchase(int purchase_id, Product product, User buyer, String address, Timestamp purchase,
             Timestamp delivery, PurchasesStatus statusid) {
@@ -121,5 +121,5 @@ public class Purchase {
         return "Purchase [address=" + address + ", buyer=" + buyer + ", delivery=" + delivery + ", product=" + product
                 + ", purchase=" + purchase + ", purchase_id=" + purchase_id + ", statusid=" + statusid + "]";
     }
- 
+
 }

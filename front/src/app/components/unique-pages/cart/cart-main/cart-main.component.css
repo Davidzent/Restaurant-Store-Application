@@ -9,7 +9,9 @@
     font-size: small;
     font-style: italic;
     padding-top: 15px;
-  
-  
   }
-  
+
+  #empty-cart{
+    padding-top: 20px;
+    text-align: center;
+  }
