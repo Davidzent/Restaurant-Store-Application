@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { IPurchase } from 'src/app/interfaces/Ipurchase';
+import { IUser } from "src/app/interfaces/Iuser";
 import { PurchaseService } from "src/app/services/purchasee/purchase.service";
 @Component({
   selector: 'view-purchase',
@@ -9,6 +10,8 @@ import { PurchaseService } from "src/app/services/purchasee/purchase.service";
 export class ViewPurchaseComponent implements OnInit {
   tax:number = 0;
   total:number = 0;
+  user:IUser=JSON.parse(sessionStorage.getItem("user")||"{}");
+
 
   constructor(private purchaseService:PurchaseService) { }
 
@@ -51,6 +54,13 @@ export class ViewPurchaseComponent implements OnInit {
   }
   deliveryPurchase(purchaseId) {
     this.purchaseService.deliveryPurchase(purchaseId);
+  }
+
+  isLogin():boolean{
+    return this.user?this.user.user_id?true:false:false;
+  }
+  isSeller():boolean{
+    return this.isLogin()?this.user.roleid=="Seller"?true:false:false;
   }
 
 }

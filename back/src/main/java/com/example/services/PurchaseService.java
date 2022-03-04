@@ -26,10 +26,11 @@ public class PurchaseService {
     private UserRepo ur;
     private ProductRepo proR;
 
-    public PurchaseService(){}
+    public PurchaseService() {
+    }
 
     @Autowired
-    public PurchaseService(PurchaseRepo pr,UserRepo ur,ProductRepo proR) {
+    public PurchaseService(PurchaseRepo pr, UserRepo ur, ProductRepo proR) {
         this.pr = pr;
         this.ur = ur;
         this.proR = proR;
@@ -62,12 +63,12 @@ public class PurchaseService {
 
     public List<Purchase> getAllPurchasesByUser(int id) {
         User u = ur.getById(id);
-        return pr.findAllByBuyerAndStatusidNot(u,PurchasesStatus.Cart);
+        return pr.findAllByBuyerAndStatusidNot(u, PurchasesStatus.Cart);
     }
 
     public List<Purchase> getAllCartItems(int user_id) {
         User u = ur.getById(user_id);
-        return pr.findAllByBuyerAndStatusid(u,PurchasesStatus.Cart);
+        return pr.findAllByBuyerAndStatusid(u, PurchasesStatus.Cart);
     }
 
     public Purchase setStatus(int purchase_id, PurchasesStatus status) {
@@ -75,5 +76,5 @@ public class PurchaseService {
         p.setStatusid(status);
         return pr.save(p);
     }
-    
+
 }

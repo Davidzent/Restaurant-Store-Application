@@ -10,6 +10,9 @@ import { PurchaseService } from 'src/app/services/purchasee/purchase.service';
 })
 export class PurchasesComponent implements OnInit {
   purchases:IPurchase[] = [];
+  display = false;
+  selectedPurchase: IPurchase ;
+
   // purchases:Observable<IPurchase[]> = new Observable<IPurchase[]>();
 
   input:IPurchase = {
@@ -32,15 +35,26 @@ export class PurchasesComponent implements OnInit {
     delivery: 0,
     statusid: ""
   };
+  
 
   constructor(private purchaseService:PurchaseService) { }
 
   ngOnInit() {
     this.purchaseService.getPurchases().subscribe((data) =>{
       this.purchases = data;
+
     });
+    this.purchaseService.purchaseSelected.subscribe(
+        (purchase: IPurchase) => {
+          this.selectedPurchase = purchase;
+          this.display = true;
+        }
+      );
     // this.purchases = this.purchaseService.subject;
   }
+
+  // itemInteract:boolean = true;
+ 
 
   // getPokemon(name: string){
   //   console.log(name);

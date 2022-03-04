@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/Iproduct';
 import { IModalParams } from 'src/app/interfaces/modal/Imodal-params';
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
   selector: 'new-product',
@@ -9,7 +10,7 @@ import { IModalParams } from 'src/app/interfaces/modal/Imodal-params';
 })
 export class NewProductComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productService:ProductService) { }
 
   ngOnInit() {
   }
@@ -19,10 +20,11 @@ export class NewProductComponent implements OnInit {
       name: form[0].value,
       price: form[1].value,
       description: form[2].value,
-      statusid: form[3].value,
-      typeid: form[4].value
+      typeid: form[3].value,
+      statusid: form[4].value
     }
-    console.log(product);
+    this.productService.createProduct(product);
+    this.hide();
   }
 
   hide():void{

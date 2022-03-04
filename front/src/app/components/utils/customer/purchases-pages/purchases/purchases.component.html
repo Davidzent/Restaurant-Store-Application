@@ -4,15 +4,25 @@
 
   </div>
 </section>
+<div class="row">
+  <div class="col-md-5">
+    <main role="main">
 
-<main role="main">
+      <div class="album py-5 bg-light">
+        <div class="container">
 
-  <div class="album py-5 bg-light">
-    <div class="container">
+          <purchase *ngFor="let purchase of purchases" [input]="purchase"></purchase>
 
-      <purchase *ngFor="let purchase of purchases" [input]="purchase"></purchase>
+        </div>
 
-    </div>
-
+      </div>
+    </main>
   </div>
-</main>
+  <div class="col-md-7">
+
+    <view-purchase *ngIf="display; else infoText" [input]="selectedPurchase"></view-purchase>
+    <ng-template #infoText>
+      <p>Purchase Item Detail</p>
+    </ng-template>
+  </div>
+</div>

@@ -14,19 +14,20 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
     private UserRepo ur;
 
-    public UserService(){}
+    public UserService() {
+    }
 
     @Autowired
     public UserService(UserRepo ur) {
         this.ur = ur;
     }
 
-    public User register(User u){
+    public User register(User u) {
         return ur.save(u);
     }
 
-    public User Login(String username,String password){
-        return ur.findByUsernameAndPassword(username,password);
+    public User Login(String username, String password) {
+        return ur.findByUsernameAndPassword(username, password);
     }
 
     public List<User> getAllUsers() {

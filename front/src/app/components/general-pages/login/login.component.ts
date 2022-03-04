@@ -36,17 +36,6 @@ export class LoginComponent implements OnInit {
     hidden: true,
     title: 'Log in',
     formParams: {
-      selects:[
-        {
-          name:"Role",
-          title:"Role",
-          id:"Roleid",
-          options:[
-            {value:"Customer",title:"Customer"},
-            {value:"Seller",title:"Seller"}
-          ]
-        }
-      ],
       inputs:[
         {
           name: "username",
