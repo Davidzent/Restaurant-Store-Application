@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/Iproduct';
+import { IUser } from 'src/app/interfaces/Iuser';
 import { FoodishService } from '../../../../../services/foodish/foodish.service';
 
 @Component({
@@ -10,15 +11,27 @@ import { FoodishService } from '../../../../../services/foodish/foodish.service'
 export class TempProductComponent implements OnInit {
   @Input() product: IProduct;
 
+
+  user:IUser=JSON.parse(sessionStorage.getItem("user")||"{}");
   image: string;
   category: string = 'pizza';
   imgNum: string = '1';
 
   isclicked: boolean = false;
+  
 
   constructor(private foodishService: FoodishService) { }
 
+  isLogin():boolean{
+    return this.user?this.user.user_id?true:false:false;
+  }
+  
+  isCustomer():boolean{
+    return this.isLogin()?this.user.roleid=="Customer"?true:false:false;
+  }
+
   ngOnInit() {
+    console.log(this.product.seller);
     this.getimgInfo();
     this.getImage();
   }

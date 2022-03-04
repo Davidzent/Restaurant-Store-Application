@@ -4,6 +4,7 @@ import { IUser } from 'src/app/interfaces/Iuser';
 import { HttpClient } from '@angular/common/http';
 import { FoodishService } from '../../../../../services/foodish/foodish.service';
 import { PurchaseService } from '../../../../../services/purchasee/purchase.service';
+import { ProductService } from '../../../../../services/product/product.service';
 
 
 @Component({
@@ -34,9 +35,7 @@ export class ViewProductComponent implements OnInit {
     return this.isLogin()?this.user.roleid=="Customer"?true:false:false;
   }
 
-  constructor(private foodishService: FoodishService, private purchaseService: PurchaseService) { }
-
-
+  constructor(private foodishService: FoodishService, private purchaseService: PurchaseService, private productService: ProductService) { }
 
   ngOnInit() {
    this.getimgInfo();
@@ -77,6 +76,14 @@ export class ViewProductComponent implements OnInit {
   generatePurchase(){
     this.purchaseService.createPurchase(this.innerproduct);
     this.closeWindow();
+  }
+
+  activateProduct(){
+    this.productService.activateProduct(this.innerproduct);
+  }
+
+  deactivateProduct(){
+    this.productService.deactivateProduct(this.innerproduct);
   }
 
 
