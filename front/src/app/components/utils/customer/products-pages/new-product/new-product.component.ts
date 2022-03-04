@@ -69,6 +69,6 @@ export class NewProductComponent implements OnInit {
         }
       ]
     },
-    footer: 'Register'
+    footer: 'Create new product'
   }
 }

@@ -26,7 +26,7 @@ httpOptions = {
           return throwError(e);
         })
       ).subscribe((data) => {
-        console.log(data);
+        
       });
   }
 
@@ -39,7 +39,7 @@ httpOptions = {
           return throwError(e);
         })
       ).subscribe((data) => {
-        console.log(data);
+        
         sessionStorage.setItem("user",JSON.stringify(data));
         if(data)location.reload();
       });
@@ -54,7 +54,7 @@ httpOptions = {
           return throwError(e);
         })
       ).subscribe((data) => {
-        console.log(data);
+        
         sessionStorage.setItem("user",JSON.stringify(data));
         if(data)location.reload();
 
@@ -71,7 +71,7 @@ httpOptions = {
           return throwError(e);
         })
       ).subscribe((data) => {
-        console.log(data);
+        
         sessionStorage.setItem("user",JSON.stringify(data));
                 if(data)location.reload();
 
@@ -87,7 +87,7 @@ httpOptions = {
           return throwError(e);
         })
       ).subscribe((data) => {
-        console.log(data);
+        
         sessionStorage.setItem("user","");
         location.reload();
       });
@@ -101,7 +101,7 @@ httpOptions = {
           return throwError(e);
         })
       ).subscribe((data) => {
-        console.log(data);
+        
         sessionStorage.setItem("user",JSON.stringify(data));
         if(data)location.reload();
 

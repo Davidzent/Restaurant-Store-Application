@@ -77,7 +77,6 @@ export class ProductComponent implements OnInit {
 
   getimgInfo() {
       /* console.log(this.product.typeid); */
-      console.log(this.Product.typeid);
       /* if (this.product.typeid.toLocaleString().toLowerCase == 'lunch'){ */
     if (this.Product.typeid.toLowerCase() == 'hambur'){
         this.category = 'burger';

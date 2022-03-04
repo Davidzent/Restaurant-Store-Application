@@ -25,7 +25,7 @@ export class PurchaseService {
   //         return throwError(e);
   //       })
   //     ).subscribe((data) => {
-  //       console.log(data);
+  //       
   //       this.purchases=data;
   //       this.subject.next(this.purchases);
   //     });
@@ -46,7 +46,7 @@ export class PurchaseService {
       statusid:"Cart"
     };
 
-    this.http.post<any>(url, body, environment.httpOptions).subscribe((data) => {console.log(data)});
+    this.http.post<any>(url, body, environment.httpOptions).subscribe((data) => {});
   }
 
   getCartPurchases(): Observable<IPurchase[]> {
@@ -54,72 +54,28 @@ export class PurchaseService {
     return this.http.get<IPurchase[]>(url, environment.httpOptions);
   }
 
-  declinePurchase(purchase_id):void{
+  declinePurchase(purchase_id):Observable<IPurchase>{
     let purchase:IPurchase = {
       purchase_id: purchase_id, //unique id mainly used for form request
-      product:undefined,   //product
-      address:"",
-      purchase:0,
-      statusid:""
     }
     let url:string=`${environment.url.base}/purchase/cancel`;
-    this.http.put<IPurchase>(url,purchase,environment.httpOptions)
-      .pipe(
-        catchError((e) => {
-          console.log(e);
-          return throwError(e)
-        })
-      )
-      .subscribe((data)=>{
-        console.log(data);
-      }
-      )
+    return this.http.put<IPurchase>(url,purchase,environment.httpOptions);
   }
 
-  approvePurchase(purchase_id):void{
+  approvePurchase(purchase_id):Observable<IPurchase>{
     let purchase:IPurchase = {
       purchase_id: purchase_id, //unique id mainly used for form request
-      product:undefined,   //product
-      address:"",
-      purchase:0,
-      statusid:""
     }
     let url:string=`${environment.url.base}/purchase/confirm`;
-    this.http.put<IPurchase>(url,purchase,environment.httpOptions)
-      .pipe(
-        catchError((e)=>{
-          console.log(e);
-          return throwError(e)
-        })
-      )
-      .subscribe((data)=>{
-          console.log(data);
-      }
-
-      )
+    return this.http.put<IPurchase>(url,purchase,environment.httpOptions);
   }
 
-  deliveryPurchase(purchase_id):void{
+  deliveryPurchase(purchase_id):Observable<IPurchase>{
     let purchase:IPurchase = {
       purchase_id: purchase_id, //unique id mainly used for form request
-      product:undefined,   //product
-      address:"",
-      purchase:0,
-      statusid:""
     }
     let url:string=`${environment.url.base}/purchase/delivery`;
-    this.http.put<IPurchase>(url,purchase,environment.httpOptions)
-      .pipe(
-        catchError((e)=>{
-          console.log(e);
-          return throwError(e)
-        })
-      )
-      .subscribe((data)=>{
-          console.log(data);
-        }
-
-      )
+    return this.http.put<IPurchase>(url,purchase,environment.httpOptions);
   }
 
   buy(purchases):void {
@@ -134,7 +90,7 @@ export class PurchaseService {
           })
         )
         .subscribe((data) => {
-            console.log(data);
+            
           }
         )
     }

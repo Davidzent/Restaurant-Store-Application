@@ -7,9 +7,9 @@
       </h1>
 
     </header>
-    <img class='foodimage' src='{{ innerproduct | getImg }}' *ngIf = 'image' alt ="your image"/>
+
     <div class='info'>
-     
+      <img class='foodimage' src='{{image}}' *ngIf='image' alt="your image" />
 
       <hr>
 
@@ -23,13 +23,13 @@
 
       <div *ngIf="isCustomer(); then customer else seller"></div>
       <ng-template #customer>
-        <button class="exitbutton" (click)='generatePurchase()'>Purchase</button>
+        <button class="purchase button " (click)='generatePurchase()'>Purchase</button>
       </ng-template>
 
       <ng-template #seller>
-        
-        <button class="exitbutton" (click)='deactivateProduct()'>deactivate</button>
-        <button class="exitbutton" (click)='activateProduct()'>activate</button>
+
+        <button class="purchase button" (click)='deactivateProduct()'>deactivate</button>
+        <button class="purchase button" (click)='activateProduct()'>activate</button>
       </ng-template>
     </div>
   </div>

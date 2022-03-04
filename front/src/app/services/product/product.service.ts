@@ -23,7 +23,7 @@ export class ProductService {
 
     };
 
-    this.http.put<any>(url, body, environment.httpOptions).subscribe((data) => {console.log(data)});
+    this.http.put<any>(url, body, environment.httpOptions).subscribe((data) => {});
   }
 
   deactivateProduct(prod: IProduct): void {
@@ -32,12 +32,12 @@ export class ProductService {
       product_id: prod.product_id
     };
 
-    this.http.put<any>(url, body, environment.httpOptions).subscribe((data) => {console.log(data)});
-    
+    this.http.put<any>(url, body, environment.httpOptions).subscribe((data) => {});
+  }
   createProduct(product:IProduct):void{
     let url = `${environment.url.base}/product/create`;
     this.http.post<IProduct>(url,product,environment.httpOptions).subscribe((data)=>{
-      console.log(data);
+      
     });
 
   }

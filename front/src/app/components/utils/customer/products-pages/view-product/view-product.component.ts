@@ -55,7 +55,6 @@ export class ViewProductComponent implements OnInit {
   }
 
   getimgInfo() {
-      console.log(this.innerproduct.typeid);
     if (this.innerproduct.typeid.toLocaleString() == 'Hambur'){
         this.category = 'burger';
         

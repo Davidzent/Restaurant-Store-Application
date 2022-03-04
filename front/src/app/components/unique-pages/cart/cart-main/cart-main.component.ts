@@ -21,17 +21,12 @@ export class CartMainComponent implements OnInit {
   ngOnInit() {
     this.purchasesService.getCartPurchases().subscribe((data) =>{
       this.purchases = data;
-      console.log("this.purchases" , this.purchases);
       if(this.purchases == []){
         this.display = true;
         for(let purchase of this.purchases){
           this.totalPrice += purchase.product.price;
           this.totalTax += purchase.product.price * 0.1;
           this.total += purchase.product.price + this.totalTax;
-
-          console.log("a: ", purchase.product.price);
-          console.log("a: ", this.totalTax);
-          console.log("a: ", this.total);
 
         }
       }

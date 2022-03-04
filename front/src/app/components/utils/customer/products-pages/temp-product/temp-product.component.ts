@@ -31,7 +31,6 @@ export class TempProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.product.seller);
     this.getimgInfo();
     this.getImage();
   }
@@ -45,7 +44,6 @@ export class TempProductComponent implements OnInit {
   }
 
   getimgInfo() {
-      console.log(this.product.typeid);
     if (this.product.typeid.toLocaleString() == 'Hambur'){
         this.category = 'burger';
 
@@ -65,7 +63,6 @@ export class TempProductComponent implements OnInit {
 
   clicked() {
     this.isclicked = !this.isclicked;
-    console.log(this.isclicked);
   }
 
 
