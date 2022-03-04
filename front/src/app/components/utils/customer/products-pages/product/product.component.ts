@@ -78,18 +78,18 @@ export class ProductComponent implements OnInit {
   getimgInfo() {
       /* console.log(this.product.typeid); */
       /* if (this.product.typeid.toLocaleString().toLowerCase == 'lunch'){ */
-    if (this.Product.typeid.toLowerCase() == 'hambur'){
+    if (this.Product.typeid.toLowerCase() == 'Burger'){
         this.category = 'burger';
 
     }
 
     /* if (this.product.typeid.toLocaleString().toLowerCase == 'dinner'){ */
-    if (this.Product.typeid.toLowerCase() == 'pasta'){
+    if (this.Product.typeid.toLowerCase() == 'Pasta'){
       this.category = 'pasta';
   }
 
   /* if (this.product.typeid.toLocaleString().toLowerCase == 'breakfast'){ */
-  if (this.Product.typeid.toLowerCase() == 'pizza'){
+  if (this.Product.typeid.toLowerCase() == 'Pizza'){
     this.category = 'pizza';
   }
 

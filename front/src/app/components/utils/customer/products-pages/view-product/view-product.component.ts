@@ -55,16 +55,16 @@ export class ViewProductComponent implements OnInit {
   }
 
   getimgInfo() {
-    if (this.innerproduct.typeid.toLocaleString() == 'Hambur'){
+    if (this.innerproduct.typeid.toLocaleString() == 'Burger'){
         this.category = 'burger';
         
     }
 
-    if (this.innerproduct.typeid.toLocaleString() == 'pasta'){
+    if (this.innerproduct.typeid.toLocaleString() == 'Pasta'){
       this.category = 'pasta';
   }
 
-  if (this.innerproduct.typeid.toLocaleString() == 'pizza'){
+  if (this.innerproduct.typeid.toLocaleString() == 'Pizza'){
     this.category = 'pizza';
   }
 
