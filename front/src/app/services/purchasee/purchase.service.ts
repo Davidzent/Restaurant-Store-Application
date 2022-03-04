@@ -90,7 +90,6 @@ export class PurchaseService {
           })
         )
         .subscribe((data) => {
-            
           }
         )
     }
