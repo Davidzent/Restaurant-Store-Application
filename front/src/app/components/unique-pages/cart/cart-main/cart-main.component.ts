@@ -21,7 +21,8 @@ export class CartMainComponent implements OnInit {
   ngOnInit() {
     this.purchasesService.getCartPurchases().subscribe((data) =>{
       this.purchases = data;
-      if(this.purchases){
+      console.log("this.purchases" , this.purchases);
+      if(this.purchases == []){
         this.display = true;
         for(let purchase of this.purchases){
           this.totalPrice += purchase.product.price;
@@ -36,5 +37,9 @@ export class CartMainComponent implements OnInit {
       }
     });
 
+  }
+
+  buy(){
+    this.purchasesService.buy(this.purchases);
   }
 }
