@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
->some Description
+The restaurant store application will manage the purchases of the customers. Our customers in the application can log in and buy the menu items and view their orders. Sellers can log in and add new products to their menu and view all their past sold items. Sellers are authorized to cancel an order or delivery. 
 
 ## Technologies Used
 
