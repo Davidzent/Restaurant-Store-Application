@@ -54,7 +54,7 @@ As a customer:
 
 - David Guijosa Infante (https://github.com/Davidzent)
 - Ben Parser (https://github.com/Ben-Paser)
-- Valentina
+- Valentina (https://github.com/mistyhippo)
 - Aileen
 - Henry
 
