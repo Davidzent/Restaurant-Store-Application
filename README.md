@@ -6,7 +6,6 @@ The restaurant store application will manage the purchases of the customers. Our
 
 ## Technologies Used
 
->Some Technologies
    - [Spring Boot](https://spring.io/projects/spring-boot)
    - [Angular](https://angular.io/)
    - [JUnit](https://junit.org/junit4/)
