@@ -42,7 +42,17 @@ As a customer:
 
 ## Getting Started
    
-(include git clone command)
+Clone Project
+
+git clone https://github.com/Davidzent/Project02.git
+
+
+Run Front End using Angular
+
+run ng serve
+
+Navigate to http://localhost:4200/
+
 (include all environment setup steps)
 
 > Be sure to include BOTH Windows and Unix command  
