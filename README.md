@@ -44,7 +44,9 @@ As a customer:
    
 Clone Project
 
+```shell
 git clone https://github.com/Davidzent/Project02.git
+```
 
 
 Run Front End using Angular
