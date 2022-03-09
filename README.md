@@ -42,37 +42,65 @@ As a customer:
 
 ## Getting Started
    
-Clone Project
+#### Clone Project
 
 ```shell
-git clone https://github.com/Davidzent/Project02.git
+   git clone https://github.com/Davidzent/Project02.git
+```
+
+### Run Front End using Angular
+
+```shell
+  Run `ng serve`
+  Navigate to `http://localhost:4200/`
+```
+
+### Run Back End using Intellij
+
+#### Setup Environment Variables first
+
+#### Windows
+```shell
+Add the following environment variables with your customer database configuration parameters: 
+DB_HOST
+DB_USER
+DB_PASS
+```
+
+#### Linux
+
+```shell
+export the following environment variables in ~bashrc file: 
+DB_HOST
+DB_USER
+DB_PASS
 ```
 
 
-Run Front End using Angular
 
-run ng serve
+#### Foodish API
 
-Navigate to http://localhost:4200/
+```shell
+   A Node.js/Express.js REST API to GET a random picture of food dishes.
+   Base URL for all endpoints https://foodish-api.herokuapp.com/
+```
+#### Database
 
-(include all environment setup steps)
+Postgres Database in Google Cloud Platform
 
-> Be sure to include BOTH Windows and Unix command  
-> Be sure to mention if the commands only work on a specific platform (eg. AWS, GCP)
-
-- All the `code` required to get started
-- Images of what it should look like
 
 ## Usage
 
-> Here, you instruct other people on how to use your project after they’ve installed it. This would also be a good place to include screenshots of your project in action.
+> - You want to demo foodish api in an application
+> - You want to evaluate an angular application with crud functionality
+> - Contact Us if you want to help improve on the project
 
 
 ## Contributors
 
-- David Guijosa Infante (https://github.com/Davidzent)
-- Ben Parser (https://github.com/Ben-Paser)
-- Valentina (https://github.com/mistyhippo)
+- [David Guijosa Infante](https://github.com/Davidzent)
+- [Ben Parser](https://github.com/Ben-Paser)
+- [Valentina Brent](https://github.com/mistyhippo)
 - Aileen
 - Henry
 
