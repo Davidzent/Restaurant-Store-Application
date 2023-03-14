@@ -47,17 +47,17 @@ export class ViewProductComponent implements OnInit {
   }
 
   getImage() {
-    this.foodishService.getData(`https://foodish-api.herokuapp.com/images/${this.category}/${this.category}${this.imgNum}.jpg`)
-      .subscribe(
-        imgData => this.image = imgData,
-        err => console.log(err)
-      );
+    console.log(this.innerproduct.typeid);
+    this.foodishService.getData(`https://www.themealdb.com/api/json/v1/1/search.php?s=${this.innerproduct.name}`)
+      .subscribe((data) => {
+        this.image = data.meals[0].strMealThumb;
+      });
   }
 
   getimgInfo() {
     if (this.innerproduct.typeid.toLocaleString() == 'Burger'){
         this.category = 'burger';
-        
+
     }
 
     if (this.innerproduct.typeid.toLocaleString() == 'Pasta'){
@@ -69,7 +69,7 @@ export class ViewProductComponent implements OnInit {
   }
 
   this.imgNum = this.innerproduct.product_id.toLocaleString();
-  
+
   }
 
   generatePurchase(){

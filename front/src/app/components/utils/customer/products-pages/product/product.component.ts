@@ -56,18 +56,17 @@ export class ProductComponent implements OnInit {
   image: string;
   category: string = 'burger';
   imgNum: string = '1';
-  
+
 
   isclicked: boolean = false;
 
   constructor(private foodishService: FoodishService) { }
 
   getImage() {
-    this.foodishService.getData(`https://foodish-api.herokuapp.com/images/${this.category}/${this.category}${this.imgNum}.jpg`)
-      .subscribe(
-        imgData => this.image = imgData,
-        err => console.log(err)
-      );
+    this.foodishService.getData(`https://www.themealdb.com/api/json/v1/1/search.php?s=${this.Product.name}`)
+      .subscribe((data) => {
+        this.image = data.meals[0].strMealThumb;
+      });
   }
 
   /* getProduct()

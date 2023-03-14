@@ -1,6 +1,5 @@
 package com.example.controllers;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.example.modules.User;

@@ -13,7 +13,7 @@ export class GetImgPipe implements PipeTransform {
 
     this.imgNum = (value.product_id%81).toLocaleString();
 
-    return `https://foodish-api.herokuapp.com/images/${this.category}/${this.category}${this.imgNum}.jpg`;
+    return `https://www.themealdb.com/api/json/v1/1/search.php?s=${this.category}`;
   }
 
 }

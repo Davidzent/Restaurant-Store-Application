@@ -14,18 +14,18 @@ export class TempProductComponent implements OnInit {
 
   user:IUser=JSON.parse(sessionStorage.getItem("user")||"{}");
   image: string;
-  category: string = 'pizza';
+  category: string = 'burger';
   imgNum: string = '1';
 
   isclicked: boolean = false;
-  
+
 
   constructor(private foodishService: FoodishService) { }
 
   isLogin():boolean{
     return this.user?this.user.user_id?true:false:false;
   }
-  
+
   isCustomer():boolean{
     return this.isLogin()?this.user.roleid=="Customer"?true:false:false;
   }
@@ -36,11 +36,10 @@ export class TempProductComponent implements OnInit {
   }
 
   getImage() {
-    this.foodishService.getData(`https://foodish-api.herokuapp.com/images/${this.category}/${this.category}${this.imgNum}.jpg`)
-      .subscribe(
-        imgData => this.image = imgData,
-        err => console.log(err)
-      );
+    this.foodishService.getData(`https://www.themealdb.com/api/json/v1/1/search.php?s=${this.product.name}`)
+      .subscribe((data) => {
+        this.image = data.meals[0].strMealThumb;
+      });
   }
 
   getimgInfo() {

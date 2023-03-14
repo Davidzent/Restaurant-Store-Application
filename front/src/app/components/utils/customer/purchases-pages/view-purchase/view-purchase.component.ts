@@ -25,16 +25,16 @@ export class ViewPurchaseComponent implements OnInit {
     let image=this.pipe.transform(this.input.product);
     this.foodishService.getData(image)
       .subscribe(
-        imgData => this.image = imgData,
+        imgData => this.image = imgData.meals[0].strMealThumb,
       );
   }
-  
+
 
   ngOnInit() {
     let image=this.pipe.transform(this.input.product);
     this.foodishService.getData(image)
       .subscribe(
-        imgData => this.image = imgData,
+        imgData => this.image = imgData.meals[0].strMealThumb,
       );
   }
   @Input() input:IPurchase = {
