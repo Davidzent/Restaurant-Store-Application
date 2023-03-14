@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs'
+import { catchError, Subject, throwError } from 'rxjs';
 import { switchMap, map, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -10,24 +10,12 @@ export class FoodishService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getData(url: string): Observable<string> {
-    return this.httpClient.get(url, { responseType: 'blob' })
-      .pipe(
-        switchMap(response => this.readFile(response))
-      );
+  getData(url: string): any {
+    return this.httpClient.get<any>(url, { responseType: 'json' }).pipe(
+      catchError((e) => {
+        console.log(e);
+        return throwError(e);
+      })
+    );
   }
-
-  private readFile(blob: Blob): Observable<string> {
-    return Observable.create(obs => {
-      const reader = new FileReader();
-
-      reader.onerror = err => obs.error(err);
-      reader.onabort = err => obs.error(err);
-      reader.onload = () => obs.next(reader.result);
-      reader.onloadend = () => obs.complete();
-
-      return reader.readAsDataURL(blob);
-    });
-  } 
-
 }

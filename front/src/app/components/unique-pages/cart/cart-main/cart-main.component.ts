@@ -34,6 +34,8 @@ export class CartMainComponent implements OnInit {
 
   }
 
+
+
   buy(){
     this.purchasesService.buy(this.purchases);
     location.reload();

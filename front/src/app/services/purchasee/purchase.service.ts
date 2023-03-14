@@ -25,7 +25,7 @@ export class PurchaseService {
   //         return throwError(e);
   //       })
   //     ).subscribe((data) => {
-  //       
+  //
   //       this.purchases=data;
   //       this.subject.next(this.purchases);
   //     });
@@ -80,7 +80,6 @@ export class PurchaseService {
 
   buy(purchases):void {
     for (let purchase of purchases) {
-
       let url: string = `${environment.url.base}/purchase/pending`;
       this.http.put<IPurchase>(url, purchase, environment.httpOptions)
         .pipe(

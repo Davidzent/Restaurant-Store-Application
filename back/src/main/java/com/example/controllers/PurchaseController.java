@@ -46,7 +46,8 @@ public class PurchaseController {
             return new ResponseEntity<>(new NotLoginException().getMessage(), HttpStatus.EXPECTATION_FAILED);
         if (!isCustomer(u))
             return new ResponseEntity<>(ps.getAllPurchases(), HttpStatus.ACCEPTED);
-        return new ResponseEntity<>(ps.getAllPurchasesByUser(u.getUser_id()), HttpStatus.ACCEPTED);
+        List<Purchase> purchases=ps.getAllPurchasesByUser(u.getUser_id());
+        return new ResponseEntity<>(purchases, HttpStatus.ACCEPTED);
     }
 
     @GetMapping("/cart/user")
