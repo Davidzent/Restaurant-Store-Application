@@ -1,4 +1,4 @@
-# Project02
+# Restaurant Store Application
 
 ## Executive Summary
 
