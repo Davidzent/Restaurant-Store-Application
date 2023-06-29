@@ -96,11 +96,3 @@ Postgres Database in Google Cloud Platform
 > - Contact Us if you want to help improve on the project
 
 
-## Contributors
-
-- [David Guijosa Infante](https://github.com/Davidzent)
-- [Ben Parser](https://github.com/Ben-Paser)
-- [Valentina Brent](https://github.com/mistyhippo)
-- Aileen
-- Henry
-
