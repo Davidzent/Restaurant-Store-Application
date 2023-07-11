@@ -25,18 +25,18 @@ public class EmailMessage {
     private static Session session;
 
     static {
-        pass = System.getenv("PROJECT_02_EMAIL_P");
-        from = System.getenv("PROJECT_02_EMAIL");
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.outlook.com");
-        props.put("mail.smtp.port", "587");
-        session = Session.getInstance(props, new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(from, pass);
-            }
-        });
+        // pass = System.getenv("PROJECT_02_EMAIL_P");
+        // from = System.getenv("PROJECT_02_EMAIL");
+        // Properties props = new Properties();
+        // props.put("mail.smtp.auth", "true");
+        // props.put("mail.smtp.starttls.enable", "true");
+        // props.put("mail.smtp.host", "smtp.outlook.com");
+        // props.put("mail.smtp.port", "587");
+        // session = Session.getInstance(props, new javax.mail.Authenticator() {
+        //     protected PasswordAuthentication getPasswordAuthentication() {
+        //         return new PasswordAuthentication(from, pass);
+        //     }
+        // });
     }
 
     public EmailMessage() {
