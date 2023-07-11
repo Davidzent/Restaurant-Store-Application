@@ -15,18 +15,23 @@ The restaurant store application will manage the purchases of the customers. Our
 
 
 ## User Stories
+![alt text](/Restaurant/Home.png)
 
 As an user:
-
+-   Register
+![alt text](/Restaurant/Register.png)
 -   Login.
+![alt text](/Restaurant/LogIn.png)
 -   Logout.
 -   Update account information.
+![alt text](/Restaurant/Update%20Profile.png)
 -   View my account information.
 -   Recieve emails on important events.
 
 As a seller:
 
 -   Create new products
+![alt text](/Restaurant/Create%20Product.png)
 -   View all purchases
 -   View all products
 -   Accept/Cancel/Deliver purchases
@@ -35,8 +40,11 @@ As a seller:
 As a customer:
 
 -   Add products to a cart
+![alt text](/Restaurant/View%20Products.png)
 -   Purchase a products
+![alt text](/Restaurant/Purchase%20Products.png)
 -   View previous purchases and their status
+![alt text](/Restaurant/View%20Purchases.png)
 -   View all current active products
 
 
