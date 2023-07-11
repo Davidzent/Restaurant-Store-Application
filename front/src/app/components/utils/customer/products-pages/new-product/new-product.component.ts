@@ -20,8 +20,7 @@ export class NewProductComponent implements OnInit {
       name: form[0].value,
       price: form[1].value,
       description: form[2].value,
-      typeid: form[3].value,
-      statusid: form[4].value
+      statusid: form[3].value
     }
     this.productService.createProduct(product);
     this.hide();
@@ -51,11 +50,6 @@ export class NewProductComponent implements OnInit {
           title: "Description",
           type: "text"
         },
-        {
-          name: "typeid",
-          title: "Type",
-          type: "text"
-        }
       ],
       selects:[
         {

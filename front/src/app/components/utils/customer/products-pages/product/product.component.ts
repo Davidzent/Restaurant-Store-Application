@@ -43,8 +43,7 @@ export class ProductComponent implements OnInit {
       lname:"",
       email:""   //don't know if we should display this
     },
-    statusid: "",
-    typeid: ""
+    statusid: ""
   };
 
   ngOnInit() {
@@ -77,20 +76,20 @@ export class ProductComponent implements OnInit {
   getimgInfo() {
       /* console.log(this.product.typeid); */
       /* if (this.product.typeid.toLocaleString().toLowerCase == 'lunch'){ */
-    if (this.Product.typeid.toLowerCase() == 'Burger'){
-        this.category = 'burger';
+  //   if (this.Product.typeid.toLowerCase() == 'Burger'){
+  //       this.category = 'burger';
 
-    }
+  //   }
 
-    /* if (this.product.typeid.toLocaleString().toLowerCase == 'dinner'){ */
-    if (this.Product.typeid.toLowerCase() == 'Pasta'){
-      this.category = 'pasta';
-  }
+  //   /* if (this.product.typeid.toLocaleString().toLowerCase == 'dinner'){ */
+  //   if (this.Product.typeid.toLowerCase() == 'Pasta'){
+  //     this.category = 'pasta';
+  // }
 
-  /* if (this.product.typeid.toLocaleString().toLowerCase == 'breakfast'){ */
-  if (this.Product.typeid.toLowerCase() == 'Pizza'){
-    this.category = 'pizza';
-  }
+  // /* if (this.product.typeid.toLocaleString().toLowerCase == 'breakfast'){ */
+  // if (this.Product.typeid.toLowerCase() == 'Pizza'){
+  //   this.category = 'pizza';
+  // }
 
   /* this.imgNum = this.product.product_id.toLocaleString(); */
   this.imgNum = this.Product.product_id.toLocaleString();

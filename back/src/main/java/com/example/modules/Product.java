@@ -40,21 +40,18 @@ public class Product {
     @Column(name = "statusid", nullable = false)
     ProductStatus statusid;
 
-    @Column(name = "typeid")
-    ProductType typeid;
 
     public Product() {
     }
 
-    public Product(int product_id, String name, double price, String description, User seller, ProductStatus statusid,
-            ProductType typeid) {
+    public Product(int product_id, String name, double price, String description, User seller, ProductStatus statusid) {
         this.product_id = product_id;
         this.name = name;
         this.price = price;
         this.description = description;
         this.seller = seller;
         this.statusid = statusid;
-        this.typeid = typeid;
+
     }
 
     public int getProduct_id() {
@@ -105,17 +102,9 @@ public class Product {
         this.statusid = statusid;
     }
 
-    public ProductType getTypeid() {
-        return typeid;
-    }
-
-    public void setTypeid(ProductType typeid) {
-        this.typeid = typeid;
-    }
-
     @Override
     public String toString() {
         return "Product [description=" + description + ", name=" + name + ", price=" + price + ", product_id="
-                + product_id + ", seller=" + seller + ", statusid=" + statusid + ", typeid=" + typeid + "]";
+                + product_id + ", seller=" + seller + ", statusid=" + statusid + "]";
     }
 }

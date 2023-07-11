@@ -9,7 +9,7 @@ export class GetImgPipe implements PipeTransform {
   imgNum: string;
 
   transform(value: IProduct, ...args: unknown[]): string {
-    this.category = value.typeid.toLowerCase();
+    this.category = value.name.toLowerCase();
 
     this.imgNum = (value.product_id%81).toLocaleString();
 

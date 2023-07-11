@@ -27,8 +27,7 @@ export class PurchasesComponent implements OnInit {
         lname:"",
         email:""      //don't know if we should display this
       },
-      statusid: "",
-      typeid: ""
+      statusid: ""
     },
     address:"",
     purchase: 0,
