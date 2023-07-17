@@ -84,14 +84,6 @@ DB_USER
 DB_PASS
 ```
 
-
-
-#### Foodish API
-
-```shell
-   A Node.js/Express.js REST API to GET a random picture of food dishes.
-   Base URL for all endpoints https://foodish-api.herokuapp.com/
-```
 #### Database
 
 Postgres Database in Google Cloud Platform
